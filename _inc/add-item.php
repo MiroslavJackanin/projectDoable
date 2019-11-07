@@ -1,7 +1,11 @@
 <?php
-    require '../_partials/header.php';
+    require '../header.php';
 
-    $data = $database->select('tasks','*');
-    echo '<pre>';
-    print_r($data);
-    echo '<pre>';
+    $id = $database->insert('tasks', [
+        'text' => $_POST['message3']
+    ]);
+
+    if ($id){
+        header('Location: http://localhost/projectdoable/index.php');
+        die();
+    }

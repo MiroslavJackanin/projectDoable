@@ -6,8 +6,8 @@ ini_set('display_errors', 1);
 error_reporting(-1);
 
 //required
-use Medoo\Medoo;
 require 'vendor/autoload.php';
+use Medoo\Medoo;
 
 // Initialize DB
 $database = new Medoo([
@@ -19,8 +19,6 @@ $database = new Medoo([
 ]);
 
 //Successful connection
-/*
-echo '<pre>';
+/*echo '<pre>';
 print_r( $database->info());
-echo '</pre>';
-*/
+echo '</pre>';*/
