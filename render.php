@@ -1,5 +1,5 @@
 <?php
-    require 'header.php';
+    
 
     function renderTask($text)
     {
@@ -12,3 +12,5 @@
         .'</div >'
         .'</div >';
     }
+
+    ?>

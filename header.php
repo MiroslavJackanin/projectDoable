@@ -1,5 +1,5 @@
 <?php
-    require '../_inc/config.php';
+    include "../_inc/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,3 +22,18 @@
     <title>DOable</title>
 </head>
 <body>
+<header>
+    <div class="jumbotron text-center">
+        <h1 class="display-4">
+            <span class="text-success">DO</span><span>able</span>
+        </h1>
+        <p class="lead">Don't leave for tomorrow, what can be done <span class="text-success">NOW!</span></p>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+  <form class="form-inline">
+    <button class="btn btn-outline-success" type="button">Log in</button>
+    <button class="btn btn-sm btn-outline-secondary" type="button"> <a href="signup.php">Sign up</a> </button>
+  </form>
+</nav>
+</header>
+

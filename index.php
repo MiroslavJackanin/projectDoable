@@ -1,14 +1,5 @@
 <?php include "header.php" ?>
 
-<header>
-    <div class="jumbotron text-center">
-        <h1 class="display-4">
-            <span class="text-success">DO</span><span>able</span>
-        </h1>
-        <p class="lead">Don't leave for tomorrow, what can be done <span class="text-success">NOW!</span></p>
-    </div>
-</header>
-
 <main>
     <div class="container">
         <div class="row" style="justify-content: space-evenly;">
@@ -16,9 +7,9 @@
 
                 <?php
                     include_once '_inc/config.php';
-                    include 'render.php';
+                    include_once 'render.php';
 
-                    $result = $database->select('tasks','text');
+                    $result = $database->select('notes','note');
 
                     foreach ($result as $text){
                         echo '<div class="card text-white bg-primary mb-3" style = "max-width:30rem;" >'
