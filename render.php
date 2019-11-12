@@ -1,5 +1,4 @@
 <?php
-    
 
     function renderTask($text)
     {
@@ -12,5 +11,3 @@
         .'</div >'
         .'</div >';
     }
-
-    ?>
