@@ -1,4 +1,4 @@
-<?php include "header.php" ?>
+<?php include "header.php"; ?>
 
 <main>
     <div class="container">
@@ -45,7 +45,7 @@
                 <div class="card text-white bg-dark mb-3" style="max-width: 30rem; min-height: 20rem;">
                     <div class="card-header">
                         <div class="row justify-content-between" style="max-width: 436px; margin: 0;">
-                            <input type="text" class="form-control" placeholder="header" style="max-width: 10rem;">
+                            <input type="text" class="form-control" name="title" placeholder="header" style="max-width: 10rem;">
                             <div>
                                 <button type="button" class="btn btn-outline-success">Primary</button>
                                 <button type="button" class="btn btn-outline-warning">Secondary</button>
@@ -60,7 +60,7 @@
                             <textarea class="form-control" name="message3" placeholder="details of your task" rows="3" style="height: 97px;"></textarea>
                         </p>
                     </div>
-                    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Add task">
+                    <input class="btn btn-primary btn-lg btn-block" type="submit" name="add_task" value="Add task">
                 </div>
             </form>
         </div>
