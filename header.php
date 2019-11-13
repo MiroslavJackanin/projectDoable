@@ -30,7 +30,7 @@
             </div>
             <div style="width: 10%">
                 <form style="display: flex; flex-direction: column">
-                    <button class="btn btn-outline-success" type="button">Log in</button>
+                    <button class="btn btn-outline-success" type="button"><a href="login.php">Log in</a> </button>
                     <button class="btn btn-sm btn-outline-secondary" type="button"> <a href="signup.php">Sign up</a> </button>
                 </form>
             </div>
