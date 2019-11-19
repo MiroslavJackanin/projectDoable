@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include "_partials/header.php"; ?>
 
 <main>
     <div class="container">
@@ -8,37 +8,13 @@
                 <?php
                     include_once '_inc/config.php';
                     include_once 'render.php';
-
-                    $result = $database->select('notes','note');
-
-                    foreach ($result as $text){
-                        echo '<div class="card text-white bg-primary mb-3" style = "max-width:30rem;" >'
-                                .'<div class="row justify-content-between card-header" style = "width:100%;max-width:489px;margin:0;" >'.'Task1'.'<span class="badge badge-warning">'.'Important'.'</span></div>'
-                                .'<div class="card-body" >'
-                                    .'<h4 class="card-title" >'.'HTML'.'</h4 >'
-                                    .'<p class="card-text" >'. $text .'</p >'
-                                .'</div >'
-                            .'</div >';
-                    }
+                
+                    $result = $db->query("SELECT * FROM notes ");
+                        while($row= $result ->fetch()){
+                            echo renderTask($row['title'],$row['note']);
+                        }
                 ?>
-                <!-- non-PHP version of task-cards
-                <div class="flex-column">
-                    <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
-                        <div class="row justify-content-between card-header" style="width: 100%; max-width:489px; margin:0;">Task 1<span class="badge badge-warning">Important</span></div>
-                        <div class="card-body">
-                            <h4 class="card-title">HTML</h4>
-                            <p class="card-text">Create a basic HTML layout of our page.</p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
-                        <div class="row justify-content-between card-header" style="width: 100%; max-width:489px; margin:0;">Task 2<span class="badge badge-success">Completed</span></div>
-                        <div class="card-body">
-                            <h4 class="card-title">CSS</h4>
-                            <p class="card-text">Create a design for our page using CSS, Bootstrap or any other CSS framework.</p>
-                        </div>
-                    </div>
-                </div>
-                -->
+               
             </div>
 
             <form id="add-form" class="col-sm-5" action="_inc/add-item.php" method="post">
@@ -71,4 +47,4 @@
 
 </footer>
 
-<?php include "footer.php" ?>
+<?php include "_partials/footer.php";?>

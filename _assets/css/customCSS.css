@@ -1,4 +1,11 @@
-
+.lets_make{
+    font-size: 0.3em;
+    color: white;
+}
+.text-success:hover{
+    text-decoration: none;
+    
+}
 .form{
     margin:100px auto;
     width: 80%;
@@ -7,6 +14,11 @@
     background-color: #303030;
     padding: 1em;
   
+}
+.bg-dark{
+    position: sticky;
+  
+    top:0;
 }
 
 .btn-primary{
@@ -17,9 +29,15 @@
 .center-button{
     text-align: center;
 }
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #00bc8c;
     color: #303030;
+}
+
+.btn-primary:active{
+    background-color: #00bc8c;
+    color: #303030;
+
 }
 
 @media only screen and (min-width:800px){

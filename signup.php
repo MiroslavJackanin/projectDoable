@@ -1,6 +1,8 @@
-<?php include_once "header.php"?>
+<?php include_once "_partials/header.php";
+      
+?>
 
-<form class="form">
+<form class="form" action="_inc/add_user.php" method="post">
   <div class="form-group">
       <label for="exampleInputEmail1">Name</label>
       <input type="text" class="form-control" name="name" placeholder="Enter your name">
@@ -22,7 +24,7 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
   </div>
-  <div class="center-button"><button type="submit" class="btn btn-primary">Sign up</button></div>
+  <div class="center-button"><button type="submit" class="btn btn-primary" name="reg_user">Sign up</button></div>
   
 </form>
 <?php ?>
