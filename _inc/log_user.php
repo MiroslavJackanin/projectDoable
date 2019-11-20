@@ -1,21 +1,22 @@
 <?php 
 
+include_once "config.php";
     $errors=[];
 
-    if (isset($_POST['log_user'])) {
-        if (empty($_POST['email'])) {
+    if (isset($_GET['log_user'])) {
+        if (empty($_GET['email'])) {
             array_push($errors,"Please insert correct email");
         }
-        if (empty($_POST['password'])) {
+        if (empty($_GET['password'])) {
             array_push($errors, "Please insert your password");
         }
 
         if (count($errors)==0) {
-            $name=$_POST['email'];
-            $hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $name=$_GET['email'];
+            $hash=password_hash($_GET['password'], PASSWORD_DEFAULT);
             $result=$db->query("SELECT * FROM users WHERE email='$email' AND password='$hash' ");
             
-            $_SESSION['username'] = $_POST['email'];  
+            $_SESSION['username'] = $_GET['name'];  
             header('location: index.php'); 
         }
     

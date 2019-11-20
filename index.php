@@ -11,7 +11,7 @@
                 
                     $result = $db->query("SELECT * FROM notes ");
                         while($row= $result ->fetch()){
-                            echo renderTask($row['title'],$row['note']);
+                            echo renderTask($row['title'],$row['note'], $row['id']);
                         }
                 ?>
                
