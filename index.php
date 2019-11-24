@@ -8,11 +8,23 @@
                 <?php
                     include_once '_inc/config.php';
                     include_once 'render.php';
+                    
+                    if(!empty($_SESSION)){
+                      echo $_SESSION['email'];
+                    }
+                    
                 
-                    $result = $db->query("SELECT * FROM notes ORDER BY date DESC ");
+                    $result = $db->prepare("SELECT notes.id, title, note, id_user FROM notes 
+                                        JOIN users ON notes.id_user=users.id
+                                        WHERE email= :email
+                                        ORDER BY date DESC  ");
+
+                                        $result->bindParam(':email', $_SESSION['email']);
+                                        $result->execute();
                         while($row= $result ->fetch()){
-                            echo renderTask($row['title'],$row['note'], $row['id']);
+                            echo renderTask($row['title'],$row['note'], $row['id'], $row['id_user']);
                         }
+                        
                 ?>
                
             </div>

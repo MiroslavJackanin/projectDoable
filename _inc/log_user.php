@@ -3,21 +3,27 @@
 include_once "config.php";
     $errors=[];
 
-    if (isset($_GET['log_user'])) {
-        if (empty($_GET['email'])) {
+    if (isset($_POST['log_user'])) {
+        if (empty($_POST['email'])) {
             array_push($errors,"Please insert correct email");
         }
-        if (empty($_GET['password'])) {
+        if (empty($_POST['password'])) {
             array_push($errors, "Please insert your password");
         }
 
         if (count($errors)==0) {
-            $name=$_GET['email'];
-            $hash=password_hash($_GET['password'], PASSWORD_DEFAULT);
-            $result=$db->query("SELECT * FROM users WHERE email='$email' AND password='$hash' ");
+            $sql="SELECT * FROM users WHERE email = :email AND password = :password";
             
-            $_SESSION['username'] = $_GET['name'];  
-            print_r($_GET['email']);
+            $hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $stmt=$db->prepare($sql);
+            $stmt->bindParam(':email', $_POST['email']);
+            $stmt->bindParam(':password', $hash);
+            $stmt->execute();
+
+            $_SESSION['email'] = $_POST['email'];  
+            session_start();
+            header('Location: ../index.php');
+            print_r($_POST['email']);
         }
     
     }

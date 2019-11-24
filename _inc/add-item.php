@@ -13,7 +13,13 @@ if (!empty($_POST['add_task'])&& !empty($_POST['title'])&& !empty($_POST['messag
      $sql = "INSERT INTO notes (id_user, title, note, category) 
     VALUES (:id_user,:title,:note,:category)";
     $stmt= $db->prepare($sql);
-    $stmt->execute(array(':id_user'=>1,':title'=> $_POST['title'],':note'=> $_POST['message3'],':category'=>1));
+
+    $id_user=$db->prepare("SELECT id FROM users WHERE email=:email");
+    $id_user->bindParam(':email', $_SESSION['email']);
+    $id_user->execute();
+    $id=$id_user->fetch();
+
+    $stmt->execute(array(':id_user'=>$id['id'],':title'=> $_POST['title'],':note'=> $_POST['message3'],':category'=>1));
   
 
     if ($stmt){

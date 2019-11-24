@@ -1,6 +1,6 @@
 <?php include_once "_partials/header.php" ?>
 
-<form class="form" action="_inc/log_user.php" method="get">
+<form class="form" action="_inc/log_user.php" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">

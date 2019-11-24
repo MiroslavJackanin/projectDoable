@@ -1,10 +1,9 @@
 <?php
-/*
+
 $page_name = basename($_SERVER['SCRIPT_NAME'], '.php');
 if ($page_name == 'index') $page_name = 'home';
 ob_start();
-session_start();*/
-
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -50,5 +49,13 @@ session_start();*/
             <span style="margin: 0 20px 0 20px"><a href="login.php">HOME</a></span>
             <span style="margin: 0 20px 0 20px"><a href="index.php">TASKS</a></span>
             <span style="margin: 0 20px 0 20px"><a href="signup.php">SIGN UP</a></span>
+            
+            <?php 
+                if (!empty($_SESSION)) {
+                     echo '<a href="">'. $_SESSION['email']. '</a>' ;
+                     echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
+                }
+            ?>
+           
         </nav>
     </header>
