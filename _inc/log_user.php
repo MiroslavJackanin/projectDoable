@@ -17,7 +17,7 @@ include_once "config.php";
             $result=$db->query("SELECT * FROM users WHERE email='$email' AND password='$hash' ");
             
             $_SESSION['username'] = $_GET['name'];  
-            header('location: index.php'); 
+            print_r($_GET['email']);
         }
     
     }

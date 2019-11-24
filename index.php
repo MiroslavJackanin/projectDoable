@@ -9,7 +9,7 @@
                     include_once '_inc/config.php';
                     include_once 'render.php';
                 
-                    $result = $db->query("SELECT * FROM notes ");
+                    $result = $db->query("SELECT * FROM notes ORDER BY date DESC ");
                         while($row= $result ->fetch()){
                             echo renderTask($row['title'],$row['note'], $row['id']);
                         }
