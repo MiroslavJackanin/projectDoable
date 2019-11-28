@@ -1,0 +1,148 @@
+body, HTML, main, .hWrapper, .home1{
+    height: 100%;
+    width: 100%;
+}
+body{
+    overflow: hidden;
+}
+.hWrapper, .home1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.home2{
+    width: 60%;
+}
+.home1{
+    text-align: center;
+}
+.cssMode{
+    margin-bottom: 30px;
+}
+.cssMode{
+    position: absolute;
+    right: 0;
+    top: 30px;
+    margin: 0;
+    width: 20px;
+    height: 60px;
+    border-radius: 5px 0 0 5px;
+    -webkit-transition: width 1s;
+    transition: width 1s;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    padding: 15px 15px 15px 0px;
+}
+.cssMode:hover {
+    width: 150px;
+}
+
+#font1{
+    font-size: 35px;
+}
+#font2{
+    font-size: 95px;
+}
+#font3{
+    font-size: 1.5rem;
+}
+@media only screen and (min-width:1200px){
+    #font1{
+        font-size: 3vw;
+    }
+    #font2{
+        font-size: 8vw;
+    }
+    #font3{
+        font-size: 2vw;
+    }
+}
+@media only screen and (min-width:778px){
+    .home2{
+        width: 45%;
+    }
+}
+@media only screen and (min-width:1080px){
+    .home2{
+        width: 35%;
+    }
+}
+@media only screen and (min-width:1450px){
+    .home2{
+        width: 25%;
+    }
+}
+
+#slide {
+    position: relative;
+    left: -2000px;
+    -webkit-animation: slide 0.2s forwards;
+    -webkit-animation-delay: 0.3s;
+    animation: slide 0.2s forwards;
+    animation-delay: 0.3s;
+}
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.form{
+    width: 100%;
+    border:1px solid #303030;
+    border-radius: 10px;
+    /*background-color: #303030;*/
+    padding: 1em;
+    text-align: left;
+}
+/*.btn-primary{
+    background-color: #303030;
+    border-color: #00bc8c;
+    color: #00bc8c;
+}*/
+.center-button{
+    text-align: center;
+}
+/*.btn-primary:hover{
+    background-color: #00bc8c;
+    color: #303030;
+}*/
+.form-check-label{
+    line-height: 13px;
+}
+
+.expandable {
+    overflow: hidden;
+
+    transition: all .2s ease-in-out;
+    height: 0;
+}
+.expandable:target {
+    height: 300px;
+}
+
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+.nav-tabs {
+    text-align:center;
+    display: block;
+}
+
+.tab-pane.active {
+    animation: opac .3s
+}
+@keyframes opac {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
