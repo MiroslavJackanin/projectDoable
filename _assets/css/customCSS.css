@@ -1,53 +1,59 @@
-.lets_make{
+/*.lets_make{
     font-size: 0.3em;
     color: white;
-}
-.text-success:hover{
-    text-decoration: none;
-    
-}
-.form{
+}*/
+/*.form{
     margin:100px auto;
     width: 80%;
     border:1px solid #303030;
     border-radius: 10px;
     background-color: #303030;
     padding: 1em;
-  
-}
-.bg-dark{
+}*/
+/*.bg-dark{
     position: sticky;
-  
     top:0;
-}
-
-.btn-primary{
+}*/
+/*.btn-primary{
     background-color: #303030;
     border-color: #00bc8c;
     color: #00bc8c;
 }
-.center-button{
-    text-align: center;
-}
 .btn-primary:hover {
     background-color: #00bc8c;
     color: #303030;
-}
-
-.btn-primary:active{
+}*/
+/*.center-button{
+    text-align: center;
+}*/
+/*.btn-primary:active{
     background-color: #00bc8c;
     color: #303030;
-
-}
-
+}*/
 @media only screen and (min-width:800px){
     .form{
         width:50%;
     }
 }
-
 @media only screen and (min-width:1200px){
     .form{
         width:30%;
     }
+}
+
+.navbar{
+    padding: 15px 15px 15px 15px;
+    margin-bottom: 40px;
+}
+.navbar-brand{
+    font-size: 50px;
+    width: 33%;
+    margin-right: 0;
+}
+.navbar-nav{
+    width: 50%;
+    justify-content: center;
+}
+.signedin{
+    text-align: end;
 }

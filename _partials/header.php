@@ -25,37 +25,36 @@ session_start();
 </head>
 
 <body>
-    <header style="position:relative">
-        <div class="jumbotron" style="padding-bottom: 32px; margin-bottom: 3px">
-            <div class="row text-center align-items-center justify-content-center">
-                <div style="width: 10%">
-                </div>
-                <div style="width: 80%">
-                    <h1 class="display-4">
-                        <a class="text-success" href="index.php"><span class="text-success lets_make">lets make it </span><span class="text-success">DO</span><span class="text-white">able</span></a>
-                    </h1>
-                    <p class="lead">Don't leave for tomorrow, what can be done <span class="text-success">NOW!</span></p>
-                </div>
-                <div class="float-right" style="width: 10%">
-                    <form style="display: flex; flex-direction: column">
-                        <button class="btn btn-outline-success" type="button"><a href="login.php">Log in</a> </button>
-                        <button class="btn btn-sm btn-outline-secondary" type="button"> <a href="signup.php">Sign up</a> </button>
-                    </form>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-around">
+            <a class="navbar-brand" href="index.php" style="font-size: 50px"><span class="text-success">DO</span>able</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse justify-content-between" id="navbarColor01" style="">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.php">Sign Up</a>
+                    </li>
+                </ul>
+                <div class="signedin">
+                    <?php
+                        if (!empty($_SESSION)) {
+                            echo '<span>'."Signed in as: ".'<a href="">' . $_SESSION['email']. '</a>'.'</span>' ;
+                            echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
+                        }
+                    ?>
                 </div>
             </div>
-        </div>
-
-        <nav class="navbar navbar-dark bg-dark" style="position:sticky; top:0; justify-content: center; margin-bottom: 64px">
-            <span style="margin: 0 20px 0 20px"><a href="login.php">HOME</a></span>
-            <span style="margin: 0 20px 0 20px"><a href="index.php">TASKS</a></span>
-            <span style="margin: 0 20px 0 20px"><a href="signup.php">SIGN UP</a></span>
-            
-            <?php 
-                if (!empty($_SESSION)) {
-                     echo '<a href="">'. $_SESSION['email']. '</a>' ;
-                     echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
-                }
-            ?>
-           
         </nav>
     </header>
