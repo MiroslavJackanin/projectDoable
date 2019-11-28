@@ -11,21 +11,39 @@ include_once "config.php";
             array_push($errors, "Please insert your password");
         }
 
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $hash=password_hash($password, PASSWORD_DEFAULT);
         if (count($errors)==0) {
-            $sql="SELECT * FROM users WHERE email = :email AND password = :password";
             
-            $hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $sql="SELECT * FROM users WHERE email=':email' AND password=':password' ";
+
             $stmt=$db->prepare($sql);
-            $stmt->bindParam(':email', $_POST['email']);
-            $stmt->bindParam(':password', $hash);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+            $stmt->bindValue(':password', $hash, PDO::PARAM_STR);
             $stmt->execute();
 
-            $_SESSION['email'] = $_POST['email'];  
-            session_start();
-            header('Location: ../index.php');
-            print_r($_POST['email']);
-        }
+     $row   = $stmt->fetch(PDO::FETCH_ASSOC);
+            print_r($row[':email']);
+         /*   $count = $stmt->rowCount();
+            print_r($count);
+       
+            
+          /*  if($count == 1 && !empty($row)) {*/
+        
+                $_SESSION['email'] = $_POST['email'];
+              // print_r($row);
+               header("Location: ../index.php");
+          
+             /*
+            } else {
+              $msg = "Invalid username and password!";
+      
+           
+            
+        }*/
     
     }
+}
 
 ?>

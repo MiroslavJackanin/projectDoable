@@ -15,8 +15,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="_assets/css/normalize.css">
-    <link rel="stylesheet" href="_assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./_assets/css/normalize.css">
+    <link rel="stylesheet" href="./_assets/css/bootstrap.min.css">
     <!-- DELETE ECHO TIME IN THE END !!!  ... REFRESHING CSS -->
     <link rel="stylesheet" href="_assets/css/customCSS.css ?timestamp=<?php echo time() ?>">
 
