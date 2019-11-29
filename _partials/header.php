@@ -49,7 +49,7 @@ session_start();
                 </ul>
                 <div class="signedin">
                     <?php
-                        if (!empty($_SESSION)) {
+                        if (!empty($_SESSION['email'])) {
                             echo '<span>'."Signed in as: ".'<a href="">' . $_SESSION['email']. '</a>'.'</span>' ;
                             echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
                         }

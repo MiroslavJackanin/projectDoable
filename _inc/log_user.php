@@ -16,33 +16,42 @@ include_once "config.php";
         $hash=password_hash($password, PASSWORD_DEFAULT);
         if (count($errors)==0) {
             
-            $sql="SELECT * FROM users WHERE email=':email' AND password=':password' ";
+            $sql="SELECT * FROM users WHERE email=:email";
 
             $stmt=$db->prepare($sql);
-            $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-            $stmt->bindValue(':password', $hash, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+           /* $stmt->bindValue(':password', $hash, PDO::PARAM_STR);*/
             $stmt->execute();
-
-     $row   = $stmt->fetch(PDO::FETCH_ASSOC);
-            print_r($row[':email']);
-         /*   $count = $stmt->rowCount();
+            $result= $stmt->fetch(PDO::FETCH_ASSOC);
+        
+           
+            if (count($result)>0 && password_verify(htmlspecialchars(trim($_POST['password'])), $result["password"])) {
+           
+                $_SESSION['email']=$result['email'];
+               header("Location:../index.php");
+            } else {
+                echo " ERROR";
+            }
+            
+            /*print_r($result['email']);
+           $count = $stmt->rowCount();
             print_r($count);
        
-            
-          /*  if($count == 1 && !empty($row)) {*/
+            /*
+            if($count == 1 && !empty($row)) {
         
                 $_SESSION['email'] = $_POST['email'];
               // print_r($row);
-               header("Location: ../index.php");
+              header("Location: ../index.php");
           
-             /*
+             
             } else {
               $msg = "Invalid username and password!";
       
            
             
-        }*/
-    
+        }
+    */
     }
 }
 
