@@ -55,5 +55,6 @@
     justify-content: center;
 }
 .signedin{
+    width: 279px;
     text-align: end;
 }
