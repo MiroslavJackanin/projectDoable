@@ -1,93 +1,62 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:margin="http://www.w3.org/1999/xhtml">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php include "_partials/header.php"; ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="_assets/css/themes/bootstrap.min(0).css">
-    <link rel="stylesheet" href="_assets/css/homeCSS.css">
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./_assets/app.js"></script>
-
-    <title>DOable</title>
-</head>
-<body>
 <main>
-    <div class="hWrapper">
-        <div class="cssMode bg-success">
-            <button type="button" onclick="changeCSS(1)" class="btn btn-primary btn-sm" style="margin-left: 25px; display: block">Night</button>
-            <button type="button" onclick="changeCSS(0)" class="btn btn-primary btn-sm" style="margin-left: 10px; display: block">Day</button>
-        </div>
-        <div id="slide" class="home1">
-            <div class="home1.1">
-                <span id="font1"></span><span id="font2" class="display-4"><span class="text-success">DO</span>able</span>
-                <hr class="my-4">
-                <p id="font3">A simple web application for managing your time.</p>
+    <div class="container">
+        <div class="row" style="justify-content: space-evenly;">
+            <div class="col-sm-5">
+
+                <?php
+                    include_once '_inc/config.php';
+                    include_once 'render.php';
+                    
+                    if(!empty($_SESSION)){
+                      echo $_SESSION['email'];
+                    }
+                    
+                
+                    $result = $db->prepare("SELECT notes.id, title, note, id_user FROM notes 
+                                        JOIN users ON notes.id_user=users.id
+                                        WHERE email= :email
+                                        ORDER BY date DESC  ");
+
+                                        $result->bindParam(':email', $_SESSION['email']);
+                                        $result->execute();
+                        while($row= $result ->fetch()){
+                            echo renderTask($row['title'],$row['note'], $row['id'], $row['id_user']);
+                        }
+                        
+                ?>
+               
             </div>
-            <div id="content" class="home2">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#home">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#profile">Register</a>
-                    </li>
-                </ul>
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade active show" id="home">
-                        <form class="form">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+            <form id="add-form" class="col-sm-5" action="_inc/add-item.php" method="post">
+                <div class="card text-white bg-dark mb-3" style="max-width: 30rem; min-height: 20rem;">
+                    <div class="card-header">
+                        <div class="row justify-content-between" style="max-width: 436px; margin: 0;">
+                            <input type="text" class="form-control" name="title" placeholder="header" style="max-width: 10rem;">
+                            <div>
+                                <button type="button" class="btn btn-outline-success">Primary</button>
+                                <button type="button" class="btn btn-outline-warning">Secondary</button>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                            </div>
-                            <div class="center-button"><button type="submit" class="btn btn-success">Log in</button></div>
-                        </form>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="profile">
-                        <form class="form">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter your name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Confirm password</label>
-                                <input type="password" class="form-control" name="confirmpassword" id="exampleInputPassword1" placeholder="Confirm password">
-                            </div>
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
-                            </div>
-                            <div class="center-button"><button type="submit" class="btn btn-success">Sign up</button></div>
-                        </form>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <input type="text" class="form-control" placeholder="title of your task" style="max-width: 30rem;">
+                        </h4>
+                        <p class="card-text">
+                            <textarea class="form-control" name="message3" placeholder="details of your task" rows="3" style="height: 97px;"></textarea>
+                        </p>
                     </div>
+                    <input class="btn btn-primary btn-lg btn-block" type="submit" name="add_task" value="Add task">
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </main>
-</body>
-</html>
+
+<footer>
+
+</footer>
+
+<?php include "_partials/footer.php";?>

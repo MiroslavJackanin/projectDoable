@@ -27,7 +27,7 @@ session_start();
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-around">
-            <a class="navbar-brand" href="index.php" style="font-size: 50px"><span class="text-success">DO</span>able</a>
+            <a class="navbar-brand" href="./home.php" style="font-size: 50px"><span class="text-success">DO</span>able</a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,7 +41,7 @@ session_start();
                         <a class="nav-link" href="login.php">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Tasks</a>
+                        <a class="nav-link" href="home.php">Tasks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="signup.php">Sign Up</a>
@@ -50,7 +50,7 @@ session_start();
                 <div class="signedin">
                     <?php
                         if (!empty($_SESSION['email'])) {
-                            echo '<span>'."Signed in as: ".'<a href="">' . $_SESSION['email']. '</a>'.'</span>' ;
+                            echo '<span>'."Signed in as: ".'<a href="userAccount.php">' . $_SESSION['email']. '</a>'.'</span>' ;
                             echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
                         }
                     ?>

@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
         $stmt->execute();
 
         if ($stmt){
-            header('Location: ../index.php');
+            header('Location: ../home.php');
             exit;
         }print_r($_GET['id']);
     

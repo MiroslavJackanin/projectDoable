@@ -28,7 +28,7 @@ include_once "config.php";
             if (count($result)>0 && password_verify(htmlspecialchars(trim($_POST['password'])), $result["password"])) {
            
                 $_SESSION['email']=$result['email'];
-               header("Location:../index.php");
+               header("Location:../home.php");
             } else {
                 echo " ERROR";
             }
@@ -42,7 +42,7 @@ include_once "config.php";
         
                 $_SESSION['email'] = $_POST['email'];
               // print_r($row);
-              header("Location: ../index.php");
+              header("Location: ../home.php");
           
              
             } else {
