@@ -45,7 +45,7 @@
         
                 $_SESSION['email'] = $_POST['email'];
               // print_r($row);
-              header("Location: ../index.php");
+              header("Location: ../home.php");
           
              
             } else {
