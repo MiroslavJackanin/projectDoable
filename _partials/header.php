@@ -41,8 +41,7 @@ session_start();
                         <a class="nav-link" href="login.php">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="nav-tasks" href="index.php">Tasks</a>
-                        <span class="nav-link" id="nav-add-task" >+</span>
+                        <a class="nav-link" href="index.php">Tasks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="signup.php">Sign Up</a>

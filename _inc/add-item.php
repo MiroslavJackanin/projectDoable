@@ -23,12 +23,12 @@ if (!empty($_POST['add_task'])&& !empty($_POST['title'])&& !empty($_POST['messag
   
 
     if ($stmt){
-        header('Location: ../index.php');
+        header('Location: ../home.php');
         exit;
     }
 }
 
-header('Location: ../index.php');
+header('Location: ../home.php');
 exit;
 
 ?>

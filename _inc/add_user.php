@@ -32,7 +32,7 @@ if (isset($_POST['reg_user'])) {
    }
     
       /*  if ($stmt) {
-            header('Location: ../index.php ');
+            header('Location: ../home.php ');
             exit;
         }
     } else {
