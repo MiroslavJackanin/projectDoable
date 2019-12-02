@@ -1,6 +1,6 @@
 <?php 
 
-include_once "config.php";
+    require_once "config.php";
     $errors=[];
 
     if (isset($_POST['log_user'])) {
@@ -13,6 +13,7 @@ include_once "config.php";
 
         $email = $_POST['email'];
         $password = $_POST['password'];
+        
         $hash=password_hash($password, PASSWORD_DEFAULT);
         if (count($errors)==0) {
             
@@ -28,6 +29,8 @@ include_once "config.php";
             if (count($result)>0 && password_verify(htmlspecialchars(trim($_POST['password'])), $result["password"])) {
            
                 $_SESSION['email']=$result['email'];
+                $_SESSION['id']=$result['id'];
+
                header("Location:../index.php");
             } else {
                 echo " ERROR";
