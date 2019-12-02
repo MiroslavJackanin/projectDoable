@@ -42,20 +42,21 @@
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade active show" id="home">
-                        <form class="form">
+                        <form class="form" action="_inc/log_user.php" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
                             </div>
-                            <div class="center-button"><button type="submit" class="btn btn-success">Log in</button></div>
+                            <div class="center-button"><button type="submit" class="btn btn-primary" name="log_user">Log in</button></div>
+
                         </form>
                     </div>
                     <div class="tab-pane fade" id="profile">
