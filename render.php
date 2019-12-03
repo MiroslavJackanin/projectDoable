@@ -4,7 +4,7 @@
         return
         '<div class="card text-white bg-primary mb-3" style = "max-width: 30rem;">'
             .'<div class="row justify-content-between align-items-center card-header" style = "width: 100%; max-width:489px; margin:0;">'
-                .$title." [id ".$id.", user_id ".$id_user."]"
+                .$title
                 .'<div style="display: flex; flex-direction: row; justify-content: center; align-content: center;">'
                     .'<form action="_inc/delete_item.php" method="get">'
                         .'<input type="hidden" name="id" value='.$id.'>'

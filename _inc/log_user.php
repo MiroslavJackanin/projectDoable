@@ -31,7 +31,7 @@
                 $_SESSION['email']=$result['email'];
                 $_SESSION['id']=$result['id'];
 
-               header("Location:../index.php");
+               header("Location:../home.php");
             } else {
                 echo " ERROR";
             }
