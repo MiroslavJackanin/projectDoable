@@ -69,19 +69,38 @@
 }
 
 .signedin{
-    width: 279px;
+    width: 350px; /*279*/
     text-align: end;
 }
 
 #add-form{
     display: none;
     position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
     bottom: 1%;
     width: 100%;
     height: 100%;
 }
 
-#add-form-content{
+#edit-form{
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 1%;
+    width: 100%;
+    height: 100%;
+}
+
+#delete-form{
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 1%;
+    width: 100%;
+    height: 100%;
+}
+
+.form-content{
     position: relative;
     background-color: white;
     top: 20%;
@@ -91,7 +110,7 @@
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
 }
 
 @-webkit-keyframes animatetop {
@@ -113,6 +132,6 @@
     width: 45%;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     cursor: pointer;
 }

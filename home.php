@@ -29,6 +29,9 @@
                
             </div>
 
+            <div class="col-sm-5">
+            </div>
+
             <form id="add-form" class="col-sm-5" action="_inc/add-item.php" method="post">
                 <div class="card text-white bg-dark mb-3" style="max-width: 30rem; min-height: 20rem;">
                     <div class="card-header">
