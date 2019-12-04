@@ -17,6 +17,7 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./_assets/css/normalize.css">
     <link rel="stylesheet" href="./_assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     <!-- DELETE ECHO TIME IN THE END !!!  ... REFRESHING CSS -->
     <link rel="stylesheet" href="_assets/css/customCSS.css ?timestamp=<?php echo time() ?>">
 
@@ -28,21 +29,17 @@ session_start();
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-around">
             <a class="navbar-brand" href="./home.php" style="font-size: 50px"><span class="text-success">DO</span>able</a>
+            <div class="taskButton">
+                <a class="btn btn-outline-success btn-lg nav-link" id="nav-tasks" href="home.php">TASKS</a>
+                <a class="btn btn-success btn-lg nav-link" id="nav-add-task"><span class="fas fa-plus"></span></a>
+            </div>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="navbar-collapse collapse justify-content-between" id="navbarColor01" style="">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home.php">Home<span class="sr-only">(current)</span></a>
-                    </li>
+                <ul class="navbar-nav" style="vertical-align: middle">
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Log In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-tasks" href="home.php">Tasks</a>
-                        <span class="nav-link" id="nav-add-task">+</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="signup.php">Sign Up</a>
@@ -51,7 +48,7 @@ session_start();
                 <div class="signedin">
                     <?php
                         if (!empty($_SESSION['email'])) {
-                            echo '<span>'."Signed in as: ".'<a href="userAccount.php">' . $_SESSION['email']. '</a>'.'</span>' ;
+                            echo '<a href="userAccount.php">' . $_SESSION['email']. '</a>';
                             echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
                         }
                     ?>
