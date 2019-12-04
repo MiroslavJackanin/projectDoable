@@ -29,9 +29,13 @@
             if (count($result)>0 && password_verify(htmlspecialchars(trim($_POST['password'])), $result["password"])) {
            
                 $_SESSION['email']=$result['email'];
+<<<<<<< HEAD
                 $_SESSION['id']=$result['id'];
 
+               header("Location:../index.php");
+=======
                header("Location:../home.php");
+>>>>>>> 55a79a61e373cb4ef5543f7368fe0edcbb231c9e
             } else {
                 echo " ERROR";
             }

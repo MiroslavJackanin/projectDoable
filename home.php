@@ -8,10 +8,12 @@
                 <?php
                     include_once '_inc/config.php';
                     include_once 'render.php';
-                    
+
+                    /*
                     if(!empty($_SESSION)){
                       echo $_SESSION['email'];
                     }
+                    */
                     
                 
                     $result = $db->prepare("SELECT notes.id, title, note, id_user FROM notes 
