@@ -96,6 +96,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
 </main>
@@ -149,9 +150,5 @@
         deleteModal.style.display = "none"
     };
 </script>
-
-<footer>
-
-</footer>
 
 <?php include "_partials/footer.php";?>
