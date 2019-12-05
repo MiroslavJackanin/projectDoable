@@ -38,15 +38,12 @@
                     <div class="card-header">
                         <div class="row justify-content-between" style="max-width: 436px; margin: 0;">
                             <input type="text" class="form-control" name="title" placeholder="header" style="max-width: 10rem;">
-                            <div>
-                                <button type="button" class="btn btn-outline-success">Primary</button>
-                                <button type="button" class="btn btn-outline-warning">Secondary</button>
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">
-                            <input type="text" class="form-control" placeholder="title of your task" style="max-width: 30rem;">
+                            <input type="text" class="form-control" placeholder="title of your task"  style="max-width: 30rem;">
                         </h4>
                         <p class="card-text">
                             <textarea class="form-control" name="message3" placeholder="details of your task" rows="3" style="height: 97px;"></textarea>
@@ -59,16 +56,13 @@
                 </div>
             </form>
 
+            <!-- EDIT FORM MODAL -->
             <form id="edit-form" action="_inc/add-item.php" method="post">
                 <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">
-                    <div class="card-header">
+                    
                         <div class="row justify-content-between" style="max-width: 436px; margin: 0;">
                             <input type="text" class="form-control" name="title" placeholder="header" style="max-width: 10rem;">
-                            <div>
-                                <button type="button" class="btn btn-outline-success">Primary</button>
-                                <button type="button" class="btn btn-outline-warning">Secondary</button>
-                            </div>
-                        </div>
+                         
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">
@@ -85,7 +79,8 @@
                 </div>
             </form>
 
-            <form id="delete-form" action="_inc/add-item.php" method="post">
+            <!-- DELETE FORM MODAL -->
+            <form id="delete-form" method="post">
                 <div class="card text-white bg-dark mb-3 form-content" style="min-width: 20rem; max-width: 30rem; min-height: 10rem;">
                     <div class="card-header">
                         <div class="row justify-content-between delete-text" style="max-width: 436px; margin: 0;">Delete this task?

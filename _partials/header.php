@@ -32,7 +32,7 @@ session_start();
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="navbar-collapse collapse justify-content-between" id="navbarColor01" style="">
+            <div class="navbar-collapse collapse justify-content-between" id="navbarColor01" >
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="home.php">Home<span class="sr-only">(current)</span></a>
@@ -51,7 +51,7 @@ session_start();
                 <div class="signedin">
                     <?php
                         if (!empty($_SESSION['email'])) {
-                            echo '<span>'."Signed in as: ".'<a href="userAccount.php">' . $_SESSION['email']. '</a>'.'</span>' ;
+                            echo '<a href="userAccount.php">' . $_SESSION['email']. '</a>'.'</span>' ;
                             echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
                         }
                     ?>

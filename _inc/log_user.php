@@ -14,7 +14,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         
-        $hash=password_hash($password, PASSWORD_DEFAULT);
+        
         if (count($errors)==0) {
             
             $sql="SELECT * FROM users WHERE email=:email";
@@ -30,31 +30,15 @@
            
                 $_SESSION['email']=$result['email'];
                 $_SESSION['id']=$result['id'];
+                $_SESION['name']=$result['registration_date'];
+
+                print_r($_SESSION);
 
                header("Location:../home.php");
             } else {
                 echo " ERROR";
             }
             
-            /*print_r($result['email']);
-           $count = $stmt->rowCount();
-            print_r($count);
-       
-            /*
-            if($count == 1 && !empty($row)) {
-        
-                $_SESSION['email'] = $_POST['email'];
-              // print_r($row);
-              header("Location: ../home.php");
-          
-             
-            } else {
-              $msg = "Invalid username and password!";
-      
-           
-            
-        }
-    */
     }
 }
 

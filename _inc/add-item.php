@@ -20,7 +20,7 @@ if (!empty($_POST['add_task'])&& !empty($_POST['title'])&& !empty($_POST['messag
     $id=$id_user->fetch();
     // zmenit session email na ID !!!! //////////////////////////
 
-    $stmt->execute(array(':id_user'=>$id['id'],':title'=> $_POST['title'],':note'=> $_POST['message3'],':category'=>1));
+    $stmt->execute(array(':id_user'=>$id['id'],':title'=> $_POST['title'],':note'=> '<pre>'. $_POST['message3']. '</pre>',':category'=>1));
   
 
     if ($stmt){
