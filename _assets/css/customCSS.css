@@ -60,17 +60,20 @@
 }
 
 #nav-tasks{
-    padding: 0.5rem 0.2rem 0.5rem 0.5rem;
+    font-size: 1.9rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 10px 0 0 10px;
 }
 
 #nav-add-task{
     font-size: 1.1rem;
-    padding: 0.38rem 0.5rem 0.5rem 0.2rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0 10px 10px 0;
+    width: 50px;
 }
 
 .signedin{
     width: 350px; /*279*/
-    text-align: end;
 }
 
 #add-form, #edit-form, #delete-form{
@@ -116,4 +119,15 @@
 
 .nav-link:hover {
     cursor: pointer;
+}
+.taskButton{
+    display: flex;
+}
+.fas{
+    padding-top: 15px;
+}
+@media only screen and (max-width:550px){
+    .navbar-brand{
+        display: none;
+    }
 }

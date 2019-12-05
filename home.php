@@ -30,9 +30,6 @@
                
             </div>
 
-            <div class="col-sm-5">
-            </div>
-
             <form id="add-form" class="col-sm-5" action="_inc/add-item.php" style="min-width: 100%" method="post">
                 <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">
                     <div class="card-header">
@@ -94,6 +91,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
 </main>
@@ -147,9 +145,5 @@
         deleteModal.style.display = "none"
     };
 </script>
-
-<footer>
-
-</footer>
 
 <?php include "_partials/footer.php";?>
