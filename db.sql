@@ -16,7 +16,7 @@ CREATE TABLE `users` (
     `id` INT AUTO_INCREMENT NOT NULL,
     `name` varchar(50) NOT NULL,
     `email` varchar(100) NOT NULL,
-    `password` varchar(50) NOT NULL,
+    `password` varchar(100) NOT NULL,
     `img` varchar(100) DEFAULT NULL,
     `bio` TEXT DEFAULT NULL,
     `registration_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -48,7 +48,7 @@ CREATE TABLE `notes` (
     `title` VARCHAR(100) NOT NULL,
     `img` VARCHAR(100) DEFAULT NULL, /* V IMAGE bude cesta */
     `note` TEXT NOT NULL,
-    `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `date` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `category` INT NOT NULL,
    
     PRIMARY KEY (`id`),

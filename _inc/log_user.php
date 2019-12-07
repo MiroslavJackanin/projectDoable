@@ -27,7 +27,7 @@
         
            
             if (count($result)>0 && password_verify(htmlspecialchars(trim($_POST['password'])), $result["password"])) {
-           
+                session_start();
                 $_SESSION['email']=$result['email'];
                 $_SESSION['id']=$result['id'];
                 $_SESION['name']=$result['registration_date'];

@@ -97,6 +97,9 @@
     animation-name: animatetop;
     animation-duration: 0.4s;
 }
+.card-text{
+    white-space: pre-wrap;
+}
 
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}

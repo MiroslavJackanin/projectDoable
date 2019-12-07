@@ -29,15 +29,19 @@ if (isset($_POST['reg_user'])) {
         $stmt = $db->prepare($sql);
         $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $stmt->execute(array(':name' => $_POST['name'], ':email' => $_POST['email'], ':password' => $hash));
-   }
+        $result= $stmt->fetch(PDO::FETCH_ASSOC);
     
-      /*  if ($stmt) {
-            header('Location: ../home.php ');
+      if ($stmt) {
+          
+          $_SESSION['email']=$_POST['email'];
+
+          print_r($_SESSION['email']);
+           /* header('Location: ../home.php ');
             exit;
         }
-    } else {
+     else {
         header('Location: ../signup.php ');
-        exit;
-    }*/
-
+        exit;*/
+    }
+}
 ?>
