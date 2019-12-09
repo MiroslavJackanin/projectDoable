@@ -11,14 +11,14 @@
 <main>
     <div class="container">
         <div class="row" style="justify-content: space-evenly;">
-            <div class="col-sm-5">
+            <!-- <div class="col-sm-5">
 
             <form action="home.php" method="post">
                 <input type="date" name="date_by_user" value=<?php echo $curentdate?> >
                 <input type="submit" name="submitdate" value="submit" id="">
             </form>
-               
-    
+
+
                 <?php
                     include_once '_inc/config.php';
                     include_once 'render.php';
@@ -28,13 +28,10 @@
                       echo $_SESSION['email'];
                     }
                     */
-                
-                   
-                    $datebyuser;
 
                    // echo $curentdate;
-                   
-                  if (isset($_POST['submitdate'])) {
+
+                  /*if (isset($_POST['submitdate'])) {
                    $datebyuser=$_POST['date_by_user'];
                    echo $datebyuser;
                     $result = $db->prepare("SELECT notes.id, title, note, id_user, done, date FROM notes 
@@ -49,7 +46,7 @@
                             if ($row['done']==false) {
                                 echo renderTask($row['title'],$row['note'], $row['id'], $row['id_user'], $row['date']);
                             }
-                            
+
                         }
                     } else {
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, date FROM notes 
@@ -64,11 +61,10 @@
                 echo renderTask($row['title'],$row['note'], $row['id'], $row['id_user'], $row['date']);
                         }
                     }
-                
-
+                  */
                 ?>
-               
-            </div>
+
+            </div> -->
 
             <form id="add-form" class="col-sm-5" action="_inc/add-item.php" style="min-width: 100%" method="post">
                 <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">
@@ -135,6 +131,7 @@
 
         </div>
     </div>
+    <a class="btn btn-success fa fa-chevron-up" id="scroll-up"></a>
 </main>
 
 <script>
