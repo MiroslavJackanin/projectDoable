@@ -11,7 +11,7 @@ $curentdate = date("Y-m-d");
 <main>
     <div class="container">
         <div class="row" style="justify-content: space-evenly;">
-            <div class="col-sm-5">
+            <!-- <div class="col-sm-5">
 
                 <form action="home.php" method="post" style="margin:0px 10px 10px 0px;">
                     <input style ="margin: 0 10px 0 0"class="btn btn-outline-warning"  type="date" name="date_by_user" value=<?php echo $curentdate ?>>
@@ -180,6 +180,7 @@ $curentdate = date("Y-m-d");
 
         </div>
     </div>
+    <a class="btn btn-success fa fa-chevron-up" id="scroll-up"></a>
 </main>
 
 <script>

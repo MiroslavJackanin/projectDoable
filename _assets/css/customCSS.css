@@ -205,9 +205,17 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
   
 
 .navbar{
-    padding: 15px 15px 15px 15px;
-    margin-bottom: 40px;
+    margin-bottom: 100%;
 }
+
+.footer{
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+}
+
 .navbar-brand{
     font-size: 50px;
     width: 33%;
@@ -236,7 +244,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
 }
 
 .signedin{
-    width: 350px; /*279*/
+    width: 279px;
 }
 
 #add-form, #edit-form, #delete-form{
@@ -292,6 +300,14 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
 .fas{
     padding-top: 15px;
 }
+
+#scroll-up{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+}
+
 @media only screen and (max-width:550px){
     .navbar-brand{
         display: none;
