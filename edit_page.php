@@ -15,6 +15,7 @@
         $title=$row['title'];
         $text=$row['note'];
         $id=$row['id'];
+        $date=$row['date'];
 }
 
 
@@ -30,7 +31,7 @@
                             <input type="hidden" name="id" value="<?php echo $id ?>" >
                             <input type="text" class="form-control" name="title" placeholder="header"
                                      value="<?php echo $title ?>" style="max-width: 10rem;">
-                                     <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>" />
+                                     <input type="date" name="date" value="<?php echo $date; ?>" />
                         </div>
                     </div>
                     <div class="card-body">
