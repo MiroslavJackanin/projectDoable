@@ -9,7 +9,7 @@
         <nav class="footer navbar-expand-md navbar-dark bg-dark justify-content-around">
             <div class="footer-content">
                 <p>Made by students of IT Academy SOVY in Košice, 2019</p>
-                <p>Peter Ganóczi, Miroslav Jackanin, Denis Németh, Nikoleta Petrová</p>
+                <p>Peter Gánóczi, Miroslav Jackanin, Denis Németh, Nikoleta Petrová</p>
             </div>
         </nav>
     </footer>

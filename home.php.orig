@@ -11,18 +11,33 @@ $curentdate = date("Y-m-d");
 <main>
     <div class="container">
         <div class="row" style="justify-content: space-evenly;">
-         <div class="col-sm-5">
+            <!-- <div class="col-sm-5">
 
+<<<<<<< HEAD
                 <form action="home.php" method="post" style="margin:0px 10px 10px 0px;">
                     <input style ="margin: 0 10px 0 0"class="btn btn-outline-warning"  type="date" name="date_by_user" value=<?php echo $curentdate ?>>
                     <input class="btn btn-outline-success"  type="submit" name="submitdate" value="Submit" id="">
                 </form>
+=======
+            <form action="home.php" method="post">
+                <input type="date" name="date_by_user" value=<?php echo $curentdate?> >
+                <input type="submit" name="submitdate" value="submit" id="">
+            </form>
+>>>>>>> 93fd4681b6634b68bd9a316075c09298bd24b15c
 
 
                 <?php
                 include_once '_inc/config.php';
                 include_once 'render.php';
-                    
+
+                /*
+                    if(!empty($_SESSION)){
+                      echo $_SESSION['email'];
+                    }
+                    */
+
+<<<<<<< HEAD
+
                 $datebyuser;
                 $donetask = 0;
                 $tasks = 0;
@@ -31,11 +46,19 @@ $curentdate = date("Y-m-d");
                 if (isset($_POST['submitdate'])) {
                     $datebyuser = $_POST['date_by_user'];
                     echo $datebyuser;
+=======
+                   // echo $curentdate;
+
+                  /*if (isset($_POST['submitdate'])) {
+                   $datebyuser=$_POST['date_by_user'];
+                   echo $datebyuser;
+>>>>>>> 93fd4681b6634b68bd9a316075c09298bd24b15c
                     $result = $db->prepare("SELECT notes.id, title, note, id_user, done, date FROM notes 
                                         JOIN users ON notes.id_user=users.id
                                         WHERE email= :email and date=:date
                                         ORDER BY timestamp desc  ");
 
+<<<<<<< HEAD
                     $result->bindParam(':email', $_SESSION['email']);
                     $result->bindParam(':date', $datebyuser);
                     $result->execute();
@@ -44,6 +67,16 @@ $curentdate = date("Y-m-d");
                         echo renderTask($row['title'], $row['note'], $row['id'], $row['id_user'], $row['date'], $row['done']);
                         if ($row['done'] == true) {
                             $donetask++;
+=======
+                                        $result->bindParam(':email', $_SESSION['email']);
+                                        $result->bindParam(':date',$datebyuser);
+                                        $result->execute();
+                        while($row= $result ->fetch()){
+                            if ($row['done']==false) {
+                                echo renderTask($row['title'],$row['note'], $row['id'], $row['id_user'], $row['date']);
+                            }
+
+>>>>>>> 93fd4681b6634b68bd9a316075c09298bd24b15c
                         }
                         $tasks++;
                     }
@@ -63,19 +96,17 @@ $curentdate = date("Y-m-d");
                         }
                         $tasks++;
                     }
+<<<<<<< HEAD
                 }
 
 
                 ?>
-         </div>
-        
-       
-            
-                
+            </div>
+            <div>
                 <?php
-                /*echo "Tasks overall: " . $tasks;
+                echo "Tasks overall: " . $tasks;
                 echo "Tasks done: " . $donetask;
-                echo "<br>";*/
+                echo "<br>";
                 
                 function calcPercentage($tasks, $donetask)
                 {
@@ -87,9 +118,15 @@ $curentdate = date("Y-m-d");
                     }
                 }
 
+=======
+                  */
+                ?>
 
-                echo '<div>';
-                echo '<p>'."Tasks for today are done " . calcPercentage($tasks,$donetask) . "%".'</p>';
+            </div> -->
+>>>>>>> 93fd4681b6634b68bd9a316075c09298bd24b15c
+
+
+                echo "Tasks for today are done " . calcPercentage($tasks,$donetask) . "%";
                if (calcPercentage($tasks,$donetask)==100) {
                 echo
                 '<div class="success-checkmark" style="margin-top:20px;">
@@ -104,20 +141,21 @@ $curentdate = date("Y-m-d");
                    echo
                 '<div class="progress">'
                    . '<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width:'.calcPercentage($tasks, $donetask).'%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                
+                </div>
             
             </div>';
-            echo '</div>';
                };
                 
  ?>
-            
-     </div>   
-    
-            
+            </div>
             <form id="add-form" class="col-sm-5" action="_inc/add-item.php" style="min-width: 100%" method="post">
                 <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">
-                
+                    <!--  <div class="card-header">
+                        <div class="row justify-content-between" style="max-width: 436px; margin: 0;">
+                            <input type="text" class="form-control" name="title" placeholder="header" style="max-width: 10rem;">
+                           
+                        </div>
+                    </div>-->
                     <div class="card-body">
                         <h4 class="card-title">
                             <input type="text" class="form-control" name="title" placeholder="title of your task" style="max-width: 30rem;">
@@ -175,7 +213,7 @@ $curentdate = date("Y-m-d");
 
         </div>
     </div>
-  <a class="btn btn-success fa fa-chevron-up" id="scroll-up"></a>
+    <a class="btn btn-success fa fa-chevron-up" id="scroll-up"></a>
 </main>
 
 <script>
