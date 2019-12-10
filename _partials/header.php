@@ -21,7 +21,8 @@ if (!isset($_SESSION['email'])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./_assets/css/normalize.css">
     <link rel="stylesheet" href="./_assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="icon" href="img/do_logo.png" type="image/x-icon"/>
    
     <!-- DELETE ECHO TIME IN THE END !!!  ... REFRESHING CSS -->
     <link rel="stylesheet" href="_assets/css/customCSS.css ?timestamp=<?php echo time() ?>">
