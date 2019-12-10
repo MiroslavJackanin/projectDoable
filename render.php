@@ -26,11 +26,11 @@
                     .'<input type="hidden" name="task_id" value='.$id.'>'
                     .'<input  class="btn btn-outline-success" style="margin-left: 5px;" type="submit" name="task_done" value="Done">'
                     .'</form>'            
-                    .'<button class="btn btn-outline-primary" style="margin-left: 5px;" data-toggle="collapse" data-target="#demo">'.'+'.'</button>'
+                    .'<button class="btn btn-outline-primary" style="margin-left: 5px;" data-toggle="collapse" data-target="#demo'.$id.'">'.'+'.'</button>'
                 .'</div>'
             .'</div>'
-            .'<div id="demo" class="card-body collapse">'
-                .'<p class="card-text" >'. $text .'</p>'
+            .'<div id="demo'.$id.'" class="collapse">'
+                .'<p class="card-body" >'. $text .'</p>'
             .'</div>'
         .'</div>';
         } else {
@@ -51,11 +51,11 @@
                     .'<input  class="btn btn-outline-warning" style="margin-left: 5px;" type="submit" name="edit_item" value="Edit">'
                     .'</form>'    
                           
-                    .'<button class="btn btn-outline-primary" style="margin-left: 5px;" data-toggle="collapse" data-target="#demo">'.'+'.'</button>'
+                    .'<button class="btn btn-outline-primary" style="margin-left: 5px;" data-toggle="collapse" data-target="#demo'.$id.'">'.'+'.'</button>'
                 .'</div>'
             .'</div>'
-            .'<div id="demo" class="card-body collapse">'
-                .'<p class="card-text" >'. $text .'</p>'
+            .'<div id="demo'.$id.'" class="collapse">'
+                .'<p class="card-body" >'. $text .'</p>'
             .'</div>'
         .'</div>';
         }

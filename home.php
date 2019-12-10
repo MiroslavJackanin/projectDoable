@@ -14,7 +14,7 @@ $curentdate = date("Y-m-d");
          <div class="col-sm-5">
 
                 <form action="home.php" method="post" style="margin:0px 10px 10px 0px;">
-                    <input style ="margin: 0 10px 0 0"class="btn btn-outline-warning"  type="date" name="date_by_user" value=<?php echo $curentdate ?>>
+                    <input style ="margin: 0 10px 0 0"class="btn btn-outline-warning"  type="date" name="date_by_user" onchange="" value=<?php echo $curentdate ?>>
                     <input class="btn btn-outline-success"  type="submit" name="submitdate" value="Submit" id="">
                 </form>
 
@@ -88,7 +88,7 @@ $curentdate = date("Y-m-d");
                 }
 
 
-                echo '<div>';
+                echo '<div >';
                 echo '<p>'."Tasks for today are done " . calcPercentage($tasks,$donetask) . "%".'</p>';
                if (calcPercentage($tasks,$donetask)==100) {
                 echo
@@ -99,6 +99,7 @@ $curentdate = date("Y-m-d");
                     <div class="icon-circle"></div>
                     <div class="icon-fix"></div>
                 </div>
+                </div>
                 </div>';
                }else{
                    echo
@@ -106,14 +107,14 @@ $curentdate = date("Y-m-d");
                    . '<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width:'.calcPercentage($tasks, $donetask).'%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                 
             
-            </div>';
-            echo '</div>';
+            </div>
+            </div>
+        </div>';
                };
                 
  ?>
             
-     </div>   
-    
+ 
             
             <form id="add-form" class="col-sm-5" action="_inc/add-item.php" style="min-width: 100%" method="post">
                 <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">
@@ -133,7 +134,8 @@ $curentdate = date("Y-m-d");
                     </div>
                 </div>
             </form>
-
+    </div>   
+    
             <!-- EDIT FORM MODAL -->
             <form id="edit-form" action="_inc/edit_item.php" method="post">
                 <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">

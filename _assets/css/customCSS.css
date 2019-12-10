@@ -72,6 +72,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     border-radius: 50%;
     box-sizing: content-box;
     border: 4px solid #00bc8c;
+    z-index: 0;
   }
   .success-checkmark .check-icon::before {
     top: 3px;
@@ -101,7 +102,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     display: block;
     border-radius: 2px;
     position: absolute;
-    z-index: 10;
+    
   }
   .success-checkmark .check-icon .icon-line.line-tip {
     top: 46px;
@@ -132,7 +133,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     top: 8px;
     width: 5px;
     left: 26px;
-    z-index: 1;
+    z-index: 0;
     height: 85px;
     position: absolute;
     transform: rotate(-45deg);
@@ -212,8 +213,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
   margin-top: 1em;
   padding: 1.5em 0 1em 0;
   margin-bottom: 0em;
- 
-  
+    
   text-align: center;
 }
 
