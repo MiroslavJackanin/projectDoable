@@ -7,7 +7,7 @@
 
     <footer>
         <nav class="footer navbar-expand-md navbar-dark bg-dark justify-content-around">
-            <div>
+            <div class="footer-content">
                 <p>Made by students of IT Academy SOVY in Košice, 2019</p>
                 <p>Peter Ganóczi, Miroslav Jackanin, Denis Németh, Nikoleta Petrová</p>
             </div>
@@ -18,7 +18,7 @@
     let scrollUpBtn = document.getElementById("scroll-up");
 
     window.onscroll = function(){
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+        if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120){
             scrollUpBtn.style.display = "block";
         } else {
             scrollUpBtn.style.display = "none";
