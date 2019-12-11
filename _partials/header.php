@@ -30,13 +30,12 @@ if (!isset($_SESSION['email'])) {
     <title>DOable</title>
 </head>
 
-<body style="padding-top: 200px">
+<body style="padding-top: 154px">
     <header>
         <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark justify-content-around">
-            <a class="navbar-brand" href="./home.php" style="font-size: 50px"><span class="text-success">DO</span>able</a>
+            <a class="navbar-brand" href="home.php" style="font-size: 50px"><span class="text-success">DO</span>able</a>
             <div class="taskButton">
-                <a class="btn btn-outline-success btn-lg nav-link" id="nav-tasks" href="today.php" style="border-radius: 10px 0 0 10px">DAILY</a>
-                <a class="btn btn-outline-success btn-lg nav-link" id="nav-tasks" href="home.php" style="border-radius: 0 0 0 0">TASKS</a>
+                <a class="btn btn-outline-success btn-lg nav-link" id="nav-tasks" href="home.php" style="border-radius: 10px 0 0 10px">TASKS</a>
                 <a class="btn btn-success btn-lg nav-link" id="nav-add-task"><span class="fas fa-plus"></span></a>
             </div>
 
@@ -44,13 +43,13 @@ if (!isset($_SESSION['email'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse justify-content-between" id="navbarColor01" >
-                <ul class="navbar-nav" style="vertical-align: middle">
+                <ul class="navbar-nav">
                     <li class="signedin">
                         <?php
-                        if (!empty($_SESSION['email'])) {
-                            echo '<a href="userAccount.php">' . $_SESSION['email']. '</a>';
-                            echo '<span style="margin: 0 20px 0 20px"><a href="./_inc/logout.php">LOG OUT</a></span>';
-                        }
+                            if (!empty($_SESSION['email'])) {
+                                echo '<a href="userAccount.php">' . $_SESSION['email']. '</a>';
+                                echo '<span><a href="./_inc/logout.php">LOG OUT<span class="fas fa-sign-out-alt" style="margin-left: 10px"></span></a></span>';
+                            }
                         ?>
                     </li>
                 </ul>

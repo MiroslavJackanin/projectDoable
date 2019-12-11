@@ -61,7 +61,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
 /*SUCCESS CHECKMARK*/
 .success-checkmark {
     width: 80px;
-    height: 115px;
     margin: 0 auto;
 }
 .success-checkmark .check-icon {
@@ -199,9 +198,17 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     }
 }
 
+/*TASKS DONE STATS*/
+.taskDoneText{
+    text-align: center;
+    font-size: 30px;
+}
+
 /*INPORTANT*/
 main{
-    min-height: 65vh;
+    min-height: 70vh;
+    margin: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
 }
 
 /*NAVBAR HEADER*/
@@ -236,6 +243,9 @@ main{
 }
 .signedin{
     width: 100%; /*279*/
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
 }
 .navbar{
     margin-bottom: 40px;
@@ -253,6 +263,12 @@ main{
     .navbar-collapse{
         margin-top: 15px;
     }
+}
+.fa-plus{
+    padding-top: 12px;
+}
+.fa-sign-out-alt:hover{
+    color: darkred;
 }
 
 /*FORMS*/
@@ -278,9 +294,6 @@ main{
 }
 
 /*UNKNOWN*/
-.card-text{
-    white-space: pre-wrap;
-}
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:20%; opacity:1}
@@ -311,4 +324,78 @@ main{
       padding: 1.5em 0 1em 0;
       margin-bottom: 0em;
       text-align: center;
+}
+
+/*TASK CARDS*/
+.card-header:first-child{
+    border-radius: 0.25rem;
+}
+.card-header{
+    border: none;
+}
+.card-body{
+     white-space: pre-wrap;
+ }
+.cardTitle{
+    margin: 0 5px 0 0;
+}
+.taskOptions{
+    border: none;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.fas{
+    font-size: 25px;
+}
+
+/*DATE SELECTORS*/
+.dateSelector{
+    text-align: center;
+    padding-left: 60px;
+    margin-bottom: 20px;
+}
+.dateSelected{
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+/*MAIN TASKS AND STATS POSITIONING*/
+.container1 {
+    display: flex;
+    justify-content: center;
+}
+.rowCol{
+    display: flex;
+    flex-direction: column-reverse;
+ }
+.taskCol{
+    width: 100%;
+}
+.tc{
+    margin-bottom: 30px;
+}
+@media only screen and (min-width: 1000px){
+    .container1 {
+        display: flex;
+        justify-content: center;
+    }
+    .taskCol{
+        width: 100%;
+    }
+    .rowCol{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .taskCol{
+        max-width: 480px;
+    }
+    .tc{
+         margin-bottom: 0;
+        padding-top: 60px;
+     }
+
 }
