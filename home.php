@@ -46,7 +46,7 @@
                     $result->bindParam(':date', $datebyuser);
                     $result->execute();
                     while ($row = $result->fetch()) {
-
+                        
                         echo renderTask($row['title'], $row['note'], $row['id'], $row['id_user'], $row['date'], $row['done']);
                         if ($row['done'] == true) {
                             $donetask++;
