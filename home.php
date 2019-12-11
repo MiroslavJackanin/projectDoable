@@ -70,10 +70,9 @@
                     ?>
                 </div>
 
-                <?php
-                    /*echo "Tasks overall: " . $tasks;
-                    echo "Tasks done: " . $donetask;
-                    echo "<br>";*/
+
+            <?php
+
 
                     function calcPercentage($tasks, $donetask)
                     {
