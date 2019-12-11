@@ -12,7 +12,7 @@ if (!empty($_POST['add_task'])&& !empty($_POST['title'])&& !empty($_POST['messag
    if (count($errors)==0) {*/
 
     $task=htmlspecialchars($_POST['message3']);
-     $sql = "INSERT INTO notes (id_user, title, note, category, date, done) 
+    $sql = "INSERT INTO notes (id_user, title, note, category, date, done) 
     VALUES (:id_user,:title,:note,:category,:date, :done)";
     $stmt= $db->prepare($sql);
 
@@ -23,7 +23,7 @@ if (!empty($_POST['add_task'])&& !empty($_POST['title'])&& !empty($_POST['messag
     // zmenit session email na ID !!!! //////////////////////////
 
     $stmt->execute(array(':id_user'=>$id['id'],':title'=> $_POST['title'],':note'=> $task,':category'=>1,':date'=> $_POST['date'], ':done'=>false));
-  
+
 
     if ($stmt){
         header('Location: ../home.php');
