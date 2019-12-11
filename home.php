@@ -31,6 +31,7 @@
                         if (isset($_GET['submitdate'])) {
                             $datebyuser = $_GET['date_by_user'];
                             echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$datebyuser.'</div>';
+
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, done, date FROM notes 
                                                 JOIN users ON notes.id_user=users.id
                                                 WHERE email= :email and date=:date
@@ -47,6 +48,9 @@
                                 $tasks++;
                             }
                         } else {
+                            $curentdate = date("d-m-Y");
+                            echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$curentdate.'</div>';
+
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, date, done FROM notes 
                                     JOIN users ON notes.id_user=users.id
                                     WHERE email= :email and date=:date

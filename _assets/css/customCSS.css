@@ -210,6 +210,9 @@ main{
     margin: 0 20px 0 20px;
     padding: 0 10px 0 10px;
 }
+body{
+    padding-top: 162px;
+}
 
 /*NAVBAR HEADER*/
 .navbar-brand{
@@ -276,7 +279,7 @@ main{
     display: none;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
-    bottom: 1%;
+    bottom: 0;
     width: 100%;
     height: 100%;
 }
@@ -333,8 +336,8 @@ main{
 .card-header{
     border: none;
 }
-.card-body{
-     white-space: pre-wrap;
+.taskText{
+    white-space: pre-wrap;
  }
 .cardTitle{
     margin: 0 5px 0 0;

@@ -37,7 +37,7 @@
                 .'</div>'
 
                 .'<div id="demo'.$id.'" class="collapse">'
-                    .'<p class="card-body" >'. $text .'</p>'
+                    .'<p class="card-body taskText" >'. $text .'</p>'
                 .'</div>'
             .'</div>';
 
@@ -69,7 +69,7 @@
                 .'</div>'
 
                 .'<div id="demo'.$id.'" class="collapse">'
-                    .'<p class="card-body" >'. $text .'</p>'
+                    .'<p class="card-body taskText" >'. $text .'</p>'
                 .'</div>'
             .'</div>';
         }
