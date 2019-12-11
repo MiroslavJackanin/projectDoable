@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="_assets/css/themes/bootstrap.min(0).css">
-    <link rel="stylesheet" href="_assets/css/homeCSS.css">
+    <link rel="stylesheet" href="_assets/css/homeCSS.css ?timestamp=<?php echo time() ?>">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

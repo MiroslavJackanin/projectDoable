@@ -30,6 +30,8 @@
     background-color: #00bc8c;
     color: #303030;
 }*/
+
+/*RESPONSIVITY*/
 @media only screen and (min-width:800px){
     .form{
         width:50%;
@@ -40,11 +42,12 @@
         width:30%;
     }
 }
+
 /*CUSTOMIZE DATE INPUT*/
 input[type="date"]::-webkit-clear-button {
     display: none;
 }
-input[type="date"]::-webkit-inner-spin-button {
+input[type="date"]::-webkit-inner-spin-button { 
    display: none;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -55,69 +58,63 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     color: white;
 }
 
-/**/
-/**
- * Extracted from: SweetAlert
- * Modified by: Istiak Tridip
- */
- .success-checkmark {
+/*SUCCESS CHECKMARK*/
+.success-checkmark {
     width: 80px;
-    height: 115px;
     margin: 0 auto;
-  }
-  .success-checkmark .check-icon {
+}
+.success-checkmark .check-icon {
     width: 80px;
     height: 80px;
     position: relative;
     border-radius: 50%;
     box-sizing: content-box;
     border: 4px solid #00bc8c;
-  }
-  .success-checkmark .check-icon::before {
+    z-index: 0;
+}
+.success-checkmark .check-icon::before {
     top: 3px;
     left: -2px;
     width: 30px;
     transform-origin: 100% 50%;
     border-radius: 100px 0 0 100px;
-  }
-  .success-checkmark .check-icon::after {
+}
+.success-checkmark .check-icon::after {
     top: 0;
     left: 30px;
     width: 60px;
     transform-origin: 0 50%;
     border-radius: 0 100px 100px 0;
     animation: rotate-circle 4.25s ease-in;
-  }
-  .success-checkmark .check-icon::before, .success-checkmark .check-icon::after {
+}
+.success-checkmark .check-icon::before, .success-checkmark .check-icon::after {
     content: "";
     height: 100px;
     position: absolute;
-
     transform: rotate(-45deg);
-  }
-  .success-checkmark .check-icon .icon-line {
+}
+.success-checkmark .check-icon .icon-line {
     height: 5px;
     background-color: #00bc8c;
     display: block;
     border-radius: 2px;
     position: absolute;
-    z-index: 10;
-  }
-  .success-checkmark .check-icon .icon-line.line-tip {
+}
+.success-checkmark .check-icon .icon-line.line-tip {
     top: 46px;
     left: 14px;
     width: 25px;
     transform: rotate(45deg);
     animation: icon-line-tip 0.75s;
-  }
-  .success-checkmark .check-icon .icon-line.line-long {
+}
+.success-checkmark .check-icon .icon-line.line-long {
     top: 38px;
     right: 8px;
     width: 47px;
     transform: rotate(-45deg);
     animation: icon-line-long 0.75s;
-  }
-  .success-checkmark .check-icon .icon-circle {
+}
+.success-checkmark .check-icon .icon-circle {
     top: -4px;
     left: -4px;
     z-index: 10;
@@ -127,127 +124,154 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     position: absolute;
     box-sizing: content-box;
     border: 4px solid#00bc8c;
-  }
-  .success-checkmark .check-icon .icon-fix {
+}
+.success-checkmark .check-icon .icon-fix {
     top: 8px;
     width: 5px;
     left: 26px;
-    z-index: 1;
+    z-index: 0;
     height: 85px;
     position: absolute;
     transform: rotate(-45deg);
-
-  }
-
-  @keyframes rotate-circle {
+}
+@keyframes rotate-circle {
     0% {
-      transform: rotate(-45deg);
+        transform: rotate(-45deg);
     }
     5% {
-      transform: rotate(-45deg);
+        transform: rotate(-45deg);
     }
     12% {
-      transform: rotate(-405deg);
+        transform: rotate(-405deg);
     }
     100% {
-      transform: rotate(-405deg);
+        transform: rotate(-405deg);
     }
-  }
-  @keyframes icon-line-tip {
+}
+@keyframes icon-line-tip {
     0% {
-      width: 0;
-      left: 1px;
-      top: 19px;
+        width: 0;
+        left: 1px;
+        top: 19px;
     }
     54% {
-      width: 0;
-      left: 1px;
-      top: 19px;
+        width: 0;
+        left: 1px;
+        top: 19px;
     }
     70% {
-      width: 50px;
-      left: -8px;
-      top: 37px;
+        width: 50px;
+        left: -8px;
+        top: 37px;
     }
     84% {
-      width: 17px;
-      left: 21px;
-      top: 48px;
+        width: 17px;
+        left: 21px;
+        top: 48px;
     }
     100% {
-      width: 25px;
-      left: 14px;
-      top: 45px;
+        width: 25px;
+        left: 14px;
+        top: 45px;
     }
-  }
-  @keyframes icon-line-long {
+}
+@keyframes icon-line-long {
     0% {
-      width: 0;
-      right: 46px;
-      top: 54px;
+        width: 0;
+        right: 46px;
+        top: 54px;
     }
     65% {
-      width: 0;
-      right: 46px;
-      top: 54px;
+        width: 0;
+        right: 46px;
+        top: 54px;
     }
     84% {
-      width: 55px;
-      right: 0px;
-      top: 35px;
+        width: 55px;
+        right: 0px;
+        top: 35px;
     }
     100% {
-      width: 47px;
-      right: 8px;
-      top: 38px;
+        width: 47px;
+        right: 8px;
+        top: 38px;
     }
-  }
-
-
-.navbar{
-    margin-bottom: 100%;
 }
 
-.footer{
-  margin-top: 1em;
-  padding: 1.5em 0 1em 0;
-  margin-bottom: 0em;
-
-
-  text-align: center;
+/*TASKS DONE STATS*/
+.taskDoneText{
+    text-align: center;
+    font-size: 30px;
 }
 
+/*INPORTANT*/
+main{
+    min-height: 70vh;
+    margin: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
+}
+
+/*NAVBAR HEADER*/
 .navbar-brand{
     font-size: 50px;
     width: 33%;
     margin-right: 0;
+    text-align: center;
 }
 .navbar-nav{
-    width: 50%;
+    width: 100%;
     justify-content: center;
 }
-
+.navbar-collapse{
+    width: 33%;
+    flex-grow: 0;
+    text-align: center;
+}
 .nav-item{
     display: flex;
 }
-
 #nav-tasks{
     font-size: 1.9rem;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     border-radius: 10px 0 0 10px;
 }
-
 #nav-add-task{
     font-size: 1.1rem;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     border-radius: 0 10px 10px 0;
     width: 50px;
 }
-
 .signedin{
-    width: 279px;
+    width: 100%; /*279*/
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+.navbar{
+    margin-bottom: 40px;
+}
+.nav-link:hover {
+    cursor: pointer;
+}
+.taskButton{
+    display: flex;
+}
+@media only screen and (max-width:550px){
+    .navbar-brand{
+        display: none;
+    }
+    .navbar-collapse{
+        margin-top: 15px;
+    }
+}
+.fa-plus{
+    padding-top: 12px;
+}
+.fa-sign-out-alt:hover{
+    color: darkred;
 }
 
+/*FORMS*/
 #add-form, #edit-form, #delete-form{
     display: none;
     position: fixed;
@@ -256,7 +280,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     width: 100%;
     height: 100%;
 }
-
 .form-content{
     position: relative;
     background-color: white;
@@ -269,48 +292,110 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     animation-name: animatetop;
     animation-duration: 0.4s;
 }
-.card-text{
-    white-space: pre-wrap;
-}
 
+/*UNKNOWN*/
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:20%; opacity:1}
 }
-
 @keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:20%; opacity:1}
 }
 
+/*EDIT PAGE*/
 .confirm-buttons{
     display: flex;
     justify-content: space-around;
 }
-
 .confirm-buttons *{
     width: 45%;
 }
 
-.nav-link:hover {
-    cursor: pointer;
+/*FOOTER*/
+#scroll-up{
+     display: none;
+     position: fixed;
+     bottom: 20px;
+     right: 25px;
 }
-.taskButton{
+.footer{
+      margin-top: 1em;
+      padding: 1.5em 0 1em 0;
+      margin-bottom: 0em;
+      text-align: center;
+}
+
+/*TASK CARDS*/
+.card-header:first-child{
+    border-radius: 0.25rem;
+}
+.card-header{
+    border: none;
+}
+.card-body{
+     white-space: pre-wrap;
+ }
+.cardTitle{
+    margin: 0 5px 0 0;
+}
+.taskOptions{
+    border: none;
+    align-items: center;
     display: flex;
+    flex-direction: row;
 }
 .fas{
-    padding-top: 15px;
+    font-size: 25px;
 }
 
-#scroll-up{
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 25px;
+/*DATE SELECTORS*/
+.dateSelector{
+    text-align: center;
+    padding-left: 60px;
+    margin-bottom: 20px;
+}
+.dateSelected{
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-size: 18px;
 }
 
-@media only screen and (max-width:550px){
-    .navbar-brand{
-        display: none;
+/*MAIN TASKS AND STATS POSITIONING*/
+.container1 {
+    display: flex;
+    justify-content: center;
+}
+.rowCol{
+    display: flex;
+    flex-direction: column-reverse;
+ }
+.taskCol{
+    width: 100%;
+}
+.tc{
+    margin-bottom: 30px;
+}
+@media only screen and (min-width: 1000px){
+    .container1 {
+        display: flex;
+        justify-content: center;
     }
+    .taskCol{
+        width: 100%;
+    }
+    .rowCol{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .taskCol{
+        max-width: 480px;
+    }
+    .tc{
+         margin-bottom: 0;
+        padding-top: 60px;
+     }
+
 }
