@@ -4,18 +4,29 @@
         echo $id, $title;
     }
     $t = time();
-    $curentdate = date("d-m-Y");
-    // echo $curentdate;
+    $curentdate = date("Y-m-d");
+    echo $curentdate;
 ?>
 
     <main>
         <div class="container1">
             <div class="rowCol">
+            <?php
+            if (!isset($_SESSION['date'])) {
+            
+                $_SESSION['date']=$curentdate;
+                echo "tu je date zo session";
+                echo $_SESSION['date'];
+            }
+            
+
+                
+            ?>
 
                 <div class="taskCol">
 
-                    <form class="dateSelector" action="home.php" method="GET">
-                        <input style="margin: 0 10px 0 0" class="btn btn-outline-warning" type="date" name="date_by_user" onchange="clickFunction()">
+                    <form class="dateSelector" action="home.php" method="get">
+                        <input style="margin: 0 10px 0 0" class="btn btn-outline-warning" type="date" name="date_by_user" onchange="clickFunction()" value=<?php echo $_SESSION['date']; ?>>
                         <button class="btn btn-outline-success" style="visibility: hidden" type="submit" name="submitdate" id="submitDate"><span class="fas fa-calendar-alt"></span></button>
                     </form>
 
@@ -30,6 +41,9 @@
 
                         if (isset($_GET['submitdate'])) {
                             $datebyuser = $_GET['date_by_user'];
+                            $_SESSION['date']=$datebyuser;
+                            echo "tu je druhy". $_SESSION['date'];
+
                             echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$datebyuser.'</div>';
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, done, date FROM notes 
                                                 JOIN users ON notes.id_user=users.id
@@ -37,7 +51,7 @@
                                                 ORDER BY timestamp desc  ");
 
                             $result->bindParam(':email', $_SESSION['email']);
-                            $result->bindParam(':date', $datebyuser);
+                            $result->bindParam(':date', $_SESSION['date']);
                             $result->execute();
                             while ($row = $result->fetch()) {
                                 echo renderTask($row['title'], $row['note'], $row['id'], $row['id_user'], $row['date'], $row['done']);
@@ -47,13 +61,15 @@
                                 $tasks++;
                             }
                         } else {
+                           
+                            echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$_SESSION['date'].'</div>';
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, date, done FROM notes 
                                     JOIN users ON notes.id_user=users.id
                                     WHERE email= :email and date=:date
                                     ORDER BY timestamp desc  ");
 
                             $result->bindParam(':email', $_SESSION['email']);
-                            $result->bindParam(':date', $curentdate);
+                            $result->bindParam(':date', $_SESSION['date']);
                             $result->execute();
                             while ($row = $result->fetch()) {
                                 echo renderTask($row['title'], $row['note'], $row['id'], $row['id_user'], $row['date'], $row['done']);
@@ -80,9 +96,11 @@
                         }
                     }
 
-
+                    if (calcPercentage($tasks,$donetask)!=0) {
+                        
+                    
                     echo '<div class="taskCol tc">';
-                    echo '<p class="taskDoneText">' . "Tasks for today are done " . calcPercentage($tasks, $donetask) . "%" . '</p>';
+                    echo '<p class="taskDoneText">' . "Tasks for today are <span class='text-success'>" . calcPercentage($tasks, $donetask) . "%</span> done " . '</p>';
                     if (calcPercentage($tasks, $donetask) == 100) {
                         echo
                             '<div class="success-checkmark" style="margin-top:20px;">
@@ -103,6 +121,7 @@
                                 </div>
                              </div>';
                     }
+                }
 
                 ?>
 
