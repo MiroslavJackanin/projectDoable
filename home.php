@@ -45,6 +45,7 @@
                             echo "tu je druhy". $_SESSION['date'];
 
                             echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$datebyuser.'</div>';
+
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, done, date FROM notes 
                                                 JOIN users ON notes.id_user=users.id
                                                 WHERE email= :email and date=:date
@@ -63,6 +64,7 @@
                         } else {
                            
                             echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$_SESSION['date'].'</div>';
+
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, date, done FROM notes 
                                     JOIN users ON notes.id_user=users.id
                                     WHERE email= :email and date=:date
@@ -132,7 +134,7 @@
                             <h4 class="card-title">
                                 <input type="text" class="form-control" name="title" placeholder="title of your task" style="max-width: 30rem;">
                             </h4>
-                            <input type="date" name="date" value="<?php echo date('Y-m-d'); ?>"/>
+                            <input style="margin: 0 10px 10px 0" class="btn btn-outline-warning" type="date" name="date" value="<?php echo date('Y-m-d'); ?>"/>
                             <p class="card-text">
                                 <textarea class="form-control" name="message3" placeholder="details of your task" rows="3" style="height: 97px;"></textarea>
                             </p>

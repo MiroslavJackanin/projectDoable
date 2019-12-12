@@ -28,7 +28,7 @@
             <div class="row justify-content-between" style="max-width: 436px; margin: 0;">
                 <input type="hidden" name="id" value="<?php echo $id ?>" >
                 <input type="text" class="form-control" name="title" placeholder="header" value="<?php echo $title ?>" style="max-width: 10rem;">
-                <input type="date" name="date" value="<?php echo $date; ?>">
+                <input style="margin: 0 10px 10px 0" class="btn btn-outline-warning" type="date" name="date" value="<?php echo $date; ?>">
             </div>
         </div>
         <div class="card-body">
