@@ -204,7 +204,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:focus {
     font-size: 30px;
 }
 
-/*INPORTANT*/
+/*IMPORTANT*/
 main{
     min-height: 70vh;
     margin: 0 20px 0 20px;
@@ -295,8 +295,6 @@ body{
     animation-name: animatetop;
     animation-duration: 0.4s;
 }
-
-/*UNKNOWN*/
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:20%; opacity:1}
@@ -315,18 +313,30 @@ body{
     width: 45%;
 }
 
-/*FOOTER*/
+/*SCROLL-TO-TOP*/
 #scroll-up{
      display: none;
      position: fixed;
      bottom: 20px;
      right: 25px;
 }
+
+/*FOOTER*/
 .footer{
-      margin-top: 1em;
-      padding: 1.5em 0 1em 0;
-      margin-bottom: 0em;
-      text-align: center;
+    margin-top: 1em;
+    padding: 1.5em 0 1em 0;
+    margin-bottom: 0em;
+    text-align: center;
+}
+
+/*USER ACCOUNT*/
+.acc-change-content{
+    position: relative;
+}
+.acc-change{
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
 }
 
 /*TASK CARDS*/
@@ -400,5 +410,4 @@ body{
          margin-bottom: 0;
         padding-top: 60px;
      }
-
 }
