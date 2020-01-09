@@ -12,14 +12,12 @@
         <div class="container1">
             <div class="rowCol">
             <?php
-            if (!isset($_SESSION['date'])) {
-            
-                $_SESSION['date']=$curentdate;
-                
-            }
-            
+                if (!isset($_SESSION['date'])) {
 
+                    $_SESSION['date']=$curentdate;
                 
+                }
+
             ?>
 
                 <div class="taskCol">
@@ -41,7 +39,11 @@
                         if (isset($_GET['submitdate'])) {
                             $datebyuser = $_GET['date_by_user'];
                             $_SESSION['date']=$datebyuser;
-                            
+
+                            echo '<form class="dateSelector" action="home.php" method="get">'
+                                    .'<input style="margin: 0 10px 0 0" class="btn btn-outline-warning" type="date" name="date_by_user" onchange="clickFunction()" value='.$_SESSION['date'].'>'
+                                    .'<button class="btn btn-outline-success" style="visibility: hidden" type="submit" name="submitdate" id="submitDate">'.'<span class="fas fa-calendar-alt">'.'</span>'.'</button>'
+                                .'</form>';
 
                             echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$datebyuser.'</div>';
 
@@ -61,7 +63,12 @@
                                 $tasks++;
                             }
                         } else {
-                           
+
+                            echo '<form class="dateSelector" action="home.php" method="get">'
+                                    .'<input style="margin: 0 10px 0 0" class="btn btn-outline-warning" type="date" name="date_by_user" onchange="clickFunction()" value='.$_SESSION['date'].'>'
+                                    .'<button class="btn btn-outline-success" style="visibility: hidden" type="submit" name="submitdate" id="submitDate">'.'<span class="fas fa-calendar-alt">'.'</span>'.'</button>'
+                                .'</form>';
+
                             echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$_SESSION['date'].'</div>';
 
                             $result = $db->prepare("SELECT notes.id, title, note, id_user, date, done FROM notes 
@@ -126,29 +133,29 @@
 
                 ?>
 
-                <form id="add-form" class="col-sm-5" action="_inc/add-item.php" style="min-width: 100%" method="post">
-                    <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">
-
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <input type="text" class="form-control" name="title" placeholder="title of your task" style="max-width: 30rem;">
-                            </h4>
-                            <input style="margin: 0 10px 10px 0" class="btn btn-outline-warning" type="date" name="date" value="<?php echo date('Y-m-d'); ?>"/>
-                            <p class="card-text">
-                                <textarea class="form-control" name="message3" placeholder="details of your task" rows="3" style="height: 97px;"></textarea>
-                            </p>
-                        </div>
-                        <div class="confirm-buttons">
-                            <input class="btn btn-danger btn-lg add-cancel-btn" type="submit" name="cancel" value="Cancel">
-                            <input class="btn btn-primary btn-lg add-btn" type="submit" name="add_task" value="Add task">
-                        </div>
-
-                    </div>
-                </form>
             </div>
         </div>
         <a class="btn btn-success fa fa-chevron-up" id="scroll-up"></a>
     </main>
+    <form id="add-form" class="col-sm-5" action="_inc/add-item.php" style="min-width: 100%" method="post">
+        <div class="card text-white bg-dark mb-3 form-content" style="max-width: 30rem; min-height: 20rem;">
+
+            <div class="card-body">
+                <h4 class="card-title">
+                    <input type="text" class="form-control" name="title" placeholder="title of your task" style="max-width: 30rem;">
+                </h4>
+                <input style="margin: 0 10px 10px 0" class="btn btn-outline-warning" type="date" name="date" value="<?php echo date('Y-m-d'); ?>"/>
+                <p class="card-text">
+                    <textarea class="form-control" name="message3" placeholder="details of your task" rows="3" style="height: 97px;"></textarea>
+                </p>
+            </div>
+            <div class="confirm-buttons">
+                <input class="btn btn-danger btn-lg add-cancel-btn" type="submit" name="cancel" value="Cancel">
+                <input class="btn btn-primary btn-lg add-btn" type="submit" name="add_task" value="Add task">
+            </div>
+
+        </div>
+    </form>
 
     <script>
         function clickFunction() {

@@ -325,7 +325,7 @@ body{
 .footer{
     margin-top: 1em;
     padding: 1.5em 0 1em 0;
-    margin-bottom: 0em;
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -410,4 +410,12 @@ body{
          margin-bottom: 0;
         padding-top: 60px;
      }
+}
+
+/*TASKS SUB-PAGE*/
+.hLine{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 3px solid #00bc8c;
 }

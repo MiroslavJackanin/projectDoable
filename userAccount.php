@@ -1,6 +1,6 @@
 <?php include "_partials/header.php"; ?>
 
-    <div class="acc-change">
+    <div class="acc-change" style="min-height:70vh;">
         <form class="form acc-change-content" action="_inc/add_user.php" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Change name</label>

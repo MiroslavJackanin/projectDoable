@@ -34,9 +34,14 @@ if (!isset($_SESSION['email'])) {
     <header>
         <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark justify-content-around">
             <a class="navbar-brand" href="home.php" style="font-size: 50px"><span class="text-success">DO</span>able</a>
-            <div class="taskButton">
-                <a class="btn btn-outline-success btn-lg nav-link" id="nav-tasks" href="home.php" style="border-radius: 10px 0 0 10px">TASKS</a>
-                <a class="btn btn-success btn-lg nav-link" id="nav-add-task"><span class="fas fa-plus"></span></a>
+            <div style="display: flex">
+                <div class="taskButton">
+                    <a class="btn btn-outline-success btn-lg nav-link" id="nav-tasks" href="tasks.php" style="border-radius: 10px 0 0 10px">ALL</a>
+                </div>
+                <div class="taskButton">
+                    <a class="btn btn-outline-success btn-lg nav-link" id="nav-tasks" href="home.php" style="border-radius: 0 0 0 0">TASKS</a>
+                    <a class="btn btn-success btn-lg nav-link" id="nav-add-task"><span class="fas fa-plus"></span></a>
+                </div>
             </div>
 
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
