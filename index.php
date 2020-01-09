@@ -45,11 +45,11 @@
                         <form class="form" action="_inc/log_user.php" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" required>
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
@@ -60,25 +60,34 @@
                     </div>
                     <div class="tab-pane fade" id="profile">
                         <form class="form" action="_inc/add_user.php" method="post">
+                       
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter your name">
+                                <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+                                <label> <?php if(isset($_SESSION['errname'])){
+                                                    $error = $_SESSION['errname'];
+                                                    echo "<span>$error</span>";
+                                                }  ?>  </label>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
+                                <label> <?php if(isset($_SESSION['errpass'])){
+                                                    echo $_SESSION['errpass'];
+                                                    echo "<span>".$error."</span>";
+                                                }  ?>  </label>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Confirm password</label>
-                                <input type="password" class="form-control" name="confirmpassword" id="exampleInputPassword1" placeholder="Confirm password">
+                                <input type="password" class="form-control" name="confirmpassword" id="exampleInputPassword1" placeholder="Confirm password" required>
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                 <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
                             </div>
                             <div class="center-button"><button type="submit" class="btn btn-primary" name="reg_user">Sign up</button></div>

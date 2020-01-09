@@ -1,29 +1,38 @@
 <?php
 include_once "config.php";
 
-$errors = [
-    'name' => "",
-    'email' => "",
-    'password' => "",
-    'confirm' => "",
+ $errors=[
+    'name' => "Please insert your name",
+    'email' => "Please enter valid email",
+    'password' => "Please insert strong password with at least 8 characters",
+    'confirm' => "Please confirm password",
 ];
+$err=0;
+
+
  print_r($_POST['reg_user']);
 if (isset($_POST['reg_user'])) {
-    /*if (empty($_POST['name'])) {
-        array_push($errors['name'], "Please insert your name");
+    if (empty($_POST['name'])) {
+        $_SESSION['errname']=$errors['name'];
+        $err++;
     }
     if (empty($_POST['email'])) {
-        array_push($errors['email'], "Please enter valid email");
+        $_SESSION['errmail']=$errors['email'];
+        $err++;
     }
-    if (empty($_POST['password'])) {
-        array_push($errors['password'], "Please insert strong password");
+    if (strlen($_POST['password'])<8) {
+        $_SESSION["errpass"]=$errors['password'];
+        $err++;
+        header('Location: ../index.php ');
+        exit;
     }
 
     if ($_POST['password'] != $_POST['confirmpassword']) {
-        array_push($errors['confirm'], "Please confirm password");
+        $_SESSION['errconfirm']=$errors['confirm'];
+        $err++;
     }
 
-    if (count($errors) == 0) {*/
+    if ($err == 0) {
         $sql = "INSERT INTO users(name, email, password)
                 VALUES(:name, :email, :password)";
         $stmt = $db->prepare($sql);
@@ -32,16 +41,23 @@ if (isset($_POST['reg_user'])) {
         $result= $stmt->fetch(PDO::FETCH_ASSOC);
     
       if ($stmt) {
+
+
           
           $_SESSION['email']=$_POST['email'];
 
           print_r($_SESSION['email']);
-           /* header('Location: ../home.php ');
+            header('Location: ../home.php ');
             exit;
         }
      else {
-        header('Location: ../signup.php ');
-        exit;*/
+        header('Location: ../index.php ');
+        exit;
     }
+    
+}else {
+        header('Location: ../index.php ');
+        exit;
+}
 }
 ?>

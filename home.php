@@ -5,7 +5,7 @@
     }
     $t = time();
     $curentdate = date("Y-m-d");
-    echo $curentdate;
+    
 ?>
 
     <main>
@@ -15,8 +15,7 @@
             if (!isset($_SESSION['date'])) {
             
                 $_SESSION['date']=$curentdate;
-                echo "tu je date zo session";
-                echo $_SESSION['date'];
+                
             }
             
 
@@ -42,7 +41,7 @@
                         if (isset($_GET['submitdate'])) {
                             $datebyuser = $_GET['date_by_user'];
                             $_SESSION['date']=$datebyuser;
-                            echo "tu je druhy". $_SESSION['date'];
+                            
 
                             echo '<div class="dateSelected">'.'<span>'.'Showing tasks for: '.'</span>'.$datebyuser.'</div>';
 
