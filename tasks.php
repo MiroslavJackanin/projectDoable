@@ -22,12 +22,14 @@ $t = time();
                         $result->bindParam(':email', $_SESSION['email']);
                         $result->execute();
                         $dateData = $result->fetch();
+                        $date=$dateData['date'];
+                        $formatDate=date("Y-m-d");
                         echo '<div style="display: flex; flex-direction: row; align-items: center">'
                                 .'<form class="dateSelector" action="home.php" method="get" style="margin-bottom: 0">'
                                     .'<input style="margin: 0 0 0 0; visibility: hidden; display: none" class="btn btn-outline-warning" type="date" name="date_by_user" value='.$dateData['date'].'>'
                                     .'<button class="btn btn-outline-success" style="margin-right: 20px" type="submit" name="submitdate" id="submitDate">'.'<span class="fas fa-calendar-alt">'.'</span>'.'</button>'
                                 .'</form>'
-                                .'<div class="text-center">'.$dateData['date'].'</div>'
+                                .'<div class="text-center">'.$formatDate.'</div>'
                             .'</div>'
                             .'<div class="hLine"></div>';
 

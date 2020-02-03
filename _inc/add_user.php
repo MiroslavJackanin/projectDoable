@@ -1,63 +1,68 @@
 <?php
 include_once "config.php";
 
- $errors=[
-    'name' => "Please insert your name",
-    'email' => "Please enter valid email",
-    'password' => "Please insert strong password with at least 8 characters",
-    'confirm' => "Please confirm password",
-];
-$err=0;
+ $errors=[];
+
 
 
  print_r($_POST['reg_user']);
 if (isset($_POST['reg_user'])) {
     if (empty($_POST['name'])) {
-        $_SESSION['errname']=$errors['name'];
-        $err++;
+        array_push($errors);
     }
     if (empty($_POST['email'])) {
-        $_SESSION['errmail']=$errors['email'];
-        $err++;
+        array_push($errors,"error");
     }
     if (strlen($_POST['password'])<8) {
-        $_SESSION["errpass"]=$errors['password'];
-        $err++;
-        header('Location: ../index.php ');
+        array_push($errors,"error");
+
+        header("Location: ../index.php?message=4");
         exit;
     }
 
-    if ($_POST['password'] != $_POST['confirmpassword']) {
-        $_SESSION['errconfirm']=$errors['confirm'];
-        $err++;
-    }
-
-    if ($err == 0) {
-        $sql = "INSERT INTO users(name, email, password)
-                VALUES(:name, :email, :password)";
-        $stmt = $db->prepare($sql);
-        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $stmt->execute(array(':name' => $_POST['name'], ':email' => $_POST['email'], ':password' => $hash));
-        $result= $stmt->fetch(PDO::FETCH_ASSOC);
-    
-      if ($stmt) {
-
-
-          
-          $_SESSION['email']=$_POST['email'];
-
-          print_r($_SESSION['email']);
-            header('Location: ../home.php ');
-            exit;
+        $userExists="SELECT * FROM users WHERE email=:email";
+        $stmt=$db->prepare($userExists);
+        $stmt->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+        $stmt->execute();
+        $resultUser= $stmt->fetch(PDO::FETCH_ASSOC);
+        if($resultUser['email']=== $_POST['email']){
+            header("Location: ../index.php?message=3");
         }
-     else {
-        header('Location: ../index.php ');
-        exit;
-    }
+
+    if ($_POST['password'] === $_POST['confirmpassword']) {
+       
     
-}else {
-        header('Location: ../index.php ');
-        exit;
+
+            if (count($errors) == 0) {
+                $sql = "INSERT INTO users(name, email, password)
+                        VALUES(:name, :email, :password)";
+                $stmt = $db->prepare($sql);
+                $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $stmt->execute(array(':name' => $_POST['name'], ':email' => $_POST['email'], ':password' => $hash));
+                $result= $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            if ($stmt) {
+
+
+                
+                $_SESSION['email']=$_POST['email'];
+
+                print_r($_SESSION['email']);
+                    header('Location: ../home.php ');
+                    exit;
+                }
+            else {
+                header('Location: ../index.php ');
+                exit;
+            }
+            
+        }else {
+                header('Location: ../index.php ');
+                exit;
+        }
+} else {
+    header("Location: ../index.php?message=5");
+    exit;
 }
 }
 ?>

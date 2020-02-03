@@ -22,11 +22,6 @@
 
                 <div class="taskCol">
 
-                    <form class="dateSelector" action="home.php" method="get">
-                        <input style="margin: 0 10px 0 0" class="btn btn-outline-warning" type="date" name="date_by_user" onchange="clickFunction()" value=<?php echo $_SESSION['date']; ?>>
-                        <button class="btn btn-outline-success" style="visibility: hidden" type="submit" name="submitdate" id="submitDate"><span class="fas fa-calendar-alt"></span></button>
-                    </form>
-
                     <?php
                         include_once '_inc/config.php';
                         include_once 'render.php';

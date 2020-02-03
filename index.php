@@ -1,3 +1,4 @@
+<?php error_reporting(0); ?>
 <!DOCTYPE html>
 <html lang="en" xmlns:margin="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,11 +21,7 @@
 </head>
 <body>
 <main>
-    <div class="hWrapper">
-        <div class="cssMode bg-success">
-            <button type="button" onclick="changeCSS(1)" class="btn btn-primary btn-sm" style="margin-left: 25px; display: block">Night</button>
-            <button type="button" onclick="changeCSS(0)" class="btn btn-primary btn-sm" style="margin-left: 10px; display: block">Day</button>
-        </div>
+   
         <div id="slide" class="home1">
             <div class="home1.1">
                 <span id="font1"></span><span id="font2" class="display-4"><span class="text-success">DO</span>able</span>
@@ -55,6 +52,23 @@
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
                             </div>
+                           
+                            <?php if (isset($_GET['message']) && !empty($_GET['message']) && $_SERVER['REQUEST_METHOD'] === 'GET') { 
+
+                                    if ($_GET['message'] == 1) {
+                                        echo "<div class='alert alert-danger' role='alert'>".
+                                            "Account not found".
+                                            "</div>";
+
+                                    } elseif ( $_GET['message'] == 2) {
+                                        echo "<div class='alert alert-danger' role='alert'>".
+                                            "Wrong password".
+                                            "</div>";
+}
+                                    } ?> 
+
+                          
+                                   
                             <div class="center-button"><button type="submit" class="btn btn-primary" name="log_user">Log in</button></div>
                         </form>
                     </div>
@@ -64,10 +78,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
                                 <input type="text" class="form-control" name="name" placeholder="Enter your name" required>
-                                <label> <?php if(isset($_SESSION['errname'])){
-                                                    $error = $_SESSION['errname'];
-                                                    echo "<span>$error</span>";
-                                                }  ?>  </label>
+                                
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
@@ -77,10 +88,7 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
-                                <label> <?php if(isset($_SESSION['errpass'])){
-                                                    echo $_SESSION['errpass'];
-                                                    echo "<span>".$error."</span>";
-                                                }  ?>  </label>
+                               
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Confirm password</label>
@@ -90,6 +98,23 @@
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                 <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
                             </div>
+                            <?php if (isset($_GET['message']) && !empty($_GET['message']) && $_SERVER['REQUEST_METHOD'] === 'GET') { 
+
+                                        if ($_GET['message'] == 3) {
+                                            echo "<div class='alert alert-danger' role='alert'>".
+                                                "User with this email already exists".
+                                                "</div>";
+
+                                        } elseif ( $_GET['message'] == 4) {
+                                            echo "<div class='alert alert-danger' role='alert'>".
+                                                "Password must have at least 8 characters".
+                                                "</div>";
+                                        } elseif ( $_GET['message'] == 5) {
+                                            echo "<div class='alert alert-danger' role='alert'>".
+                                                "Password must be same".
+                                                "</div>";
+                                        } 
+                                        } ?> 
                             <div class="center-button"><button type="submit" class="btn btn-primary" name="reg_user">Sign up</button></div>
                         </form>
                     </div>

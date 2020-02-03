@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(0);
+@ini_set('display_errors', 0);
 $page_name = basename($_SERVER['SCRIPT_NAME'], '.php');
 if ($page_name == 'index') $page_name = 'home';
 ob_start();
